@@ -1,56 +1,145 @@
-C'est une excellente question ! Savoir comment identifier et utiliser l'URL de votre dépôt Git est fondamental lorsque vous travaillez avec des plateformes comme Netlify, Vercel, ou simplement pour partager votre code. Voici comment trouver le nom (et l'URL complète) de votre dépôt, selon la plateforme que vous utilisez :
+# CV en Ligne Interactif - Alexandre Berge
 
-**1. Si vous utilisez GitHub :**
+![Aperçu du Site](placeholder-screenshot.png)
+*(Remplacez `placeholder-screenshot.png` par une capture d'écran ou un GIF animé de votre site)*
 
-*   **Via le Navigateur Web :**
-    1.  Allez sur [github.com](https://github.com/) et connectez-vous.
-    2.  Naviguez jusqu'à la page de votre dépôt (repository).
-    3.  Regardez l'URL dans la barre d'adresse de votre navigateur. Elle ressemblera à : `https://github.com/VotreNomUtilisateur/NomDeVotreDepot`
-        *   `VotreNomUtilisateur` est votre pseudo GitHub.
-        *   `NomDeVotreDepot` est le nom que vous avez donné à votre projet lors de sa création sur GitHub.
-    4.  Sur la page principale du dépôt, cherchez un bouton vert "Code". Cliquez dessus. Vous verrez différentes options pour cloner ou télécharger. L'URL **HTTPS** affichée ici est l'URL complète de votre dépôt (par exemple `https://github.com/VotreNomUtilisateur/NomDeVotreDepot.git`). L'URL **SSH** (commençant par `git@github.com:...`) est une autre façon d'y accéder si vous avez configuré des clés SSH.
+Ce dépôt contient le code source du CV en ligne interactif d'Alexandre Berge, conçu comme une vitrine moderne et élégante de son parcours professionnel, de ses compétences et de ses formations. Le site utilise une navigation horizontale par sections (panneaux) et intègre des éléments interactifs pour une expérience utilisateur engageante et "ultra qualitative".
 
-*   **Via le Terminal (si vous avez déjà cloné le dépôt) :**
-    1.  Ouvrez votre terminal ou invite de commande.
-    2.  Naviguez jusqu'au dossier local de votre projet (`cd chemin/vers/votre-projet`).
-    3.  Tapez la commande : `git remote -v`
-    4.  Cela affichera les URL des dépôts distants configurés (généralement nommés `origin`). Vous verrez quelque chose comme :
-        ```
-        origin  https://github.com/VotreNomUtilisateur/NomDeVotreDepot.git (fetch)
-        origin  https://github.com/VotreNomUtilisateur/NomDeVotreDepot.git (push)
-        ```
-        Ou avec SSH :
-        ```
-        origin  git@github.com:VotreNomUtilisateur/NomDeVotreDepot.git (fetch)
-        origin  git@github.com:VotreNomUtilisateur/NomDeVotreDepot.git (push)
-        ```
-        L'URL affichée est celle de votre dépôt.
+**➡️ [Voir la Démo Live](https://votre-lien-de-demo.netlify.app/)**
+*(Remplacez par le lien réel de votre site hébergé)*
 
-**2. Si vous utilisez GitLab :**
+---
 
-*   **Via le Navigateur Web :**
-    1.  Allez sur [gitlab.com](https://gitlab.com/) (ou l'instance GitLab de votre entreprise) et connectez-vous.
-    2.  Naviguez jusqu'à la page de votre projet.
-    3.  L'URL dans la barre d'adresse est une indication, mais pour l'URL de clonage :
-    4.  Sur la page principale du projet, cherchez un bouton bleu "Clone". Cliquez dessus.
-    5.  Cela révélera les URL "Clone with SSH" et "Clone with HTTPS". L'URL HTTPS est celle que vous cherchez (ex: `https://gitlab.com/VotreNomUtilisateur/NomDeVotreProjet.git`).
+## ✨ Fonctionnalités Principales
 
-*   **Via le Terminal (si cloné) :**
-    1.  Allez dans le dossier du projet.
-    2.  Tapez `git remote -v`. Le principe est le même que pour GitHub.
+*   **Navigation Horizontale Intuitive :** Défilement fluide entre les sections via la molette, le toucher ou la navigation dédiée.
+*   **Design Élégant & Moderne :** Palette de couleurs sobre, typographie soignée, utilisation de l'espace blanc et d'effets visuels subtils (ombres, dégradés, transitions).
+*   **Sections Complètes :**
+    *   **Accueil :** Présentation impactante avec photo, titre, coordonnées et liens clés (LinkedIn, Portfolio, CV PDF).
+    *   **Profil :** Synthèse du positionnement professionnel, mise en avant des compétences socles et des principes directeurs.
+    *   **Expériences :** Timeline verticale repensée pour une lisibilité optimale des postes, missions et réalisations clés.
+    *   **Formation & Certification :** Cartes interactives (flip cards) présentant les diplômes et la certification ITIL avec détails au verso (contenu, mémoires).
+    *   **Compétences :** Cartes interactives (flip cards) organisées par grandes catégories (Stratégie, Management, Technique, Savoir-être) avec détails et technologies maîtrisées.
+    *   **Centres d'Intérêt :** Section visuellement attractive mettant en avant les passions extra-professionnelles avec images de fond et effets.
+    *   **Contact :** Formulaire fonctionnel (via service externe) et coordonnées claires sur fond contrasté.
+*   **Interactivité :** Effets de survol (hovers), flip cards, animations d'entrée subtiles pour dynamiser la présentation.
+*   **Responsivité :** Adaptation de la mise en page pour une consultation optimale sur différents appareils (ordinateur, tablette, mobile).
+*   **Optimisation :** Code structuré, CSS optimisé, utilisation de dépendances via CDN pour la performance.
 
-**3. Si vous utilisez Bitbucket :**
+---
 
-*   **Via le Navigateur Web :**
-    1.  Allez sur [bitbucket.org](https://bitbucket.org/) et connectez-vous.
-    2.  Accédez à votre dépôt.
-    3.  Sur la page du dépôt, cherchez un bouton "Clone" (souvent en haut à droite).
-    4.  Cliquez dessus pour afficher les URL de clonage HTTPS ou SSH (ex: `https://VotreNomUtilisateur@bitbucket.org/VotreNomUtilisateur/NomDeVotreDepot.git`).
+## 🛠️ Technologies Utilisées
 
-*   **Via le Terminal (si cloné) :**
-    1.  Allez dans le dossier du projet.
-    2.  Tapez `git remote -v`.
+*   **HTML5 :** Structure sémantique du contenu.
+*   **CSS3 :**
+    *   **Tailwind CSS (via CDN) :** Utilisé principalement pour la structure de base, le système de grille responsive et les utilitaires rapides.
+    *   **CSS Personnalisé (`style.css`) :** Styles spécifiques, design avancé, animations, transitions, variables CSS pour la charte graphique, et surcharge/complément de Tailwind.
+*   **JavaScript (Vanilla) :**
+    *   Gestion de la navigation horizontale (scroll, dots, barre flottante).
+    *   Gestion du bouton "Retour Accueil".
+    *   Gestion de l'interaction tactile pour les flip cards (`ontouchstart`).
+    *   Gestion du loader initial.
+    *   *Logique de simulation* pour le formulaire de contact (à remplacer par une solution réelle).
+*   **Font Awesome (via CDN) :** Bibliothèque d'icônes.
+*   **Google Fonts :** Polices Montserrat et Playfair Display.
 
-**En résumé :**
+---
 
-Le plus simple est souvent de **naviguer jusqu'à la page de votre dépôt sur la plateforme web** (GitHub, GitLab, Bitbucket) et de **chercher le bouton "Clone" ou "Code"**. L'URL **HTTPS** qui y est affichée est généralement celle dont vous avez besoin pour le partage ou la liaison avec des services comme Netlify/Vercel.
+## 📂 Structure du Projet
+
+```
+/mon-site-cv/
+|
+|-- index.html              # Fichier HTML principal contenant toute la structure
+|-- photo_alex.jpg          # Votre photo de profil (placée à la racine)
+|-- style.css               # Fichier CSS contenant tous les styles personnalisés
+|-- script.js               # Fichier JavaScript pour l'interactivité
+|-- README.md               # Ce fichier
+|
+|-- /assets/                # Dossier pour les ressources statiques
+    |-- cv-alexandre-berge.pdf     # Votre CV au format PDF
+    |-- memoire-msic-alexandre-berge.pdf # Votre mémoire MSIC (si applicable)
+    |-- interest-leather-texture.jpg # Image d'arrière-plan pour intérêt Maroquinerie (exemple)
+    |-- interest-abstract-art.jpg  # Image d'arrière-plan pour intérêt Art (exemple)
+    |-- interest-tech-pattern.jpg  # Image d'arrière-plan pour intérêt Tech (exemple)
+    |-- ... (autres images ou ressources si nécessaire) ...
+```
+
+---
+
+## 🚀 Démarrage Rapide (Local)
+
+1.  **Clonez ou téléchargez ce dépôt :**
+    ```bash
+    git clone https://votre-url-de-depot.git nom-du-dossier
+    cd nom-du-dossier
+    ```
+    Ou téléchargez le ZIP et décompressez-le.
+2.  **Ouvrez `index.html` dans votre navigateur web.**
+
+*Note :* Pour une expérience optimale, notamment si des scripts ou des ressources externes sont chargés, il est recommandé d'utiliser une extension de serveur local (comme "Live Server" dans VS Code) plutôt que d'ouvrir le fichier directement via `file://`.
+
+---
+
+## ☁️ Déploiement
+
+Ce site est **statique** et peut être déployé facilement sur de nombreuses plateformes :
+
+1.  **Netlify (Recommandé) :**
+    *   Connectez votre dépôt Git (GitHub, GitLab, Bitbucket) ou glissez-déposez le dossier du projet.
+    *   Configuration automatique généralement suffisante.
+    *   Profitez de Netlify Forms pour le formulaire de contact (voir section suivante).
+    *   Mises à jour automatiques via `git push`.
+2.  **Vercel :**
+    *   Processus similaire à Netlify (connexion Git ou upload). Excellente performance.
+3.  **GitHub Pages :**
+    *   Activez via les paramètres de votre dépôt GitHub. Simple et gratuit.
+4.  **Cloudflare Pages :**
+    *   Alternative performante avec intégration Git.
+
+Consultez la documentation de la plateforme choisie pour les détails spécifiques.
+
+---
+
+## ✉️ Gestion du Formulaire de Contact
+
+**Important :** Le code JavaScript fourni (`script.js`) **simule** uniquement la soumission du formulaire avec une `alert()`. Pour recevoir réellement les messages :
+
+1.  **Choisissez un service de backend pour formulaire :**
+    *   **Netlify Forms :** Si hébergé sur Netlify, ajoutez simplement l'attribut `netlify` (ou `data-netlify="true"`) à votre balise `<form>` dans `index.html`. Assurez-vous que tous les champs (`input`, `textarea`) ont un attribut `name`. C'est la solution la plus simple si vous utilisez Netlify.
+    *   **Formspree.io / FormSubmit.co :** Créez un compte, obtenez une URL d'endpoint et remplacez `action="..."` dans votre balise `<form>` par cette URL. N'oubliez pas d'ajouter `method="POST"`.
+2.  **(Optionnel mais recommandé si vous n'utilisez PAS Netlify Forms) Supprimez/Commentez le Listener JavaScript :** Si vous utilisez un service externe comme Formspree, commentez ou supprimez le bloc `contactForm.addEventListener('submit', ...)` dans `script.js` pour laisser le navigateur gérer la soumission standard vers l'URL `action`.
+
+---
+
+## 🎨 Personnalisation
+
+Pour adapter ce site à votre propre profil :
+
+1.  **Contenu Textuel :** Modifiez directement le texte dans `index.html` pour toutes les sections (titres, descriptions, expériences, formations, etc.).
+2.  **Photo de Profil :** Remplacez le fichier `photo_alex.jpg` par votre propre photo, en gardant **exactement le même nom de fichier**.
+3.  **CV PDF :** Placez votre CV au format PDF dans le dossier `assets/` et assurez-vous que le nom du fichier correspond à celui utilisé dans le lien de téléchargement (`href="assets/cv-alexandre-berge.pdf"`) dans `index.html`. Modifiez également l'attribut `download` si souhaité.
+4.  **Mémoire PDF (MSIC) :** Placez votre mémoire dans `assets/` et mettez à jour le lien (`href` et `download`) dans la carte de formation MSIC dans `index.html`.
+5.  **Images "Intérêts" :** Remplacez les images d'exemple (`assets/interest-....jpg`) par les vôtres. Mettez à jour les URLs dans `style.css` au niveau des classes `.interest--maroquinerie .interest-bg-image`, `.interest--art .interest-bg-image`, etc.
+6.  **Liens Externes :** Mettez à jour les URLs pour LinkedIn, Elegartex, Elegartech et tout autre lien externe dans `index.html`.
+7.  **Styles :** Modifiez les couleurs, polices, espacements et autres aspects visuels en ajustant les variables CSS et les règles dans `style.css`.
+
+---
+
+## 🤝 Contribution
+
+Ce projet est un CV personnel. Les suggestions d'amélioration sont les bienvenues via les "Issues" du dépôt (si applicable).
+
+---
+
+## 📜 Licence
+
+Ce projet est distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus de détails (si vous en ajoutez un).
+
+---
+
+## 📞 Contact
+
+Alexandre Berge
+*   [LinkedIn](https://www.linkedin.com/in/bergealexandre)
+*   [contact@alexandre-berge.fr](mailto:contact@alexandre-berge.fr)
