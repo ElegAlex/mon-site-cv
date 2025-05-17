@@ -1,12 +1,11 @@
 # CV en Ligne Interactif - Alexandre Berge
 
-![Aperçu du Site](placeholder-screenshot.png)
-*(Remplacez `placeholder-screenshot.png` par une capture d'écran ou un GIF animé de votre site)*
+![Aperçu du Site](screenshot.png)
+*(Capture d'écran réelle du site)*
 
 Ce dépôt contient le code source du CV en ligne interactif d'Alexandre Berge, conçu comme une vitrine moderne et élégante de son parcours professionnel, de ses compétences et de ses formations. Le site utilise une navigation horizontale par sections (panneaux) et intègre des éléments interactifs pour une expérience utilisateur engageante et "ultra qualitative".
 
-**➡️ [Voir la Démo Live](https://votre-lien-de-demo.netlify.app/)**
-*(Remplacez par le lien réel de votre site hébergé)*
+**➡ [Voir la Démo Live](https://mon-site-cv.netlify.app/)**
 
 ---
 
@@ -51,7 +50,7 @@ Ce dépôt contient le code source du CV en ligne interactif d'Alexandre Berge, 
 /mon-site-cv/
 |
 |-- index.html              # Fichier HTML principal contenant toute la structure
-|-- photo_alex.jpg          # Votre photo de profil (placée à la racine)
+|-- photo_alex.png          # Votre photo de profil (placée à la racine)
 |-- style.css               # Fichier CSS contenant tous les styles personnalisés
 |-- script.js               # Fichier JavaScript pour l'interactivité
 |-- README.md               # Ce fichier
@@ -117,7 +116,7 @@ Consultez la documentation de la plateforme choisie pour les détails spécifiqu
 Pour adapter ce site à votre propre profil :
 
 1.  **Contenu Textuel :** Modifiez directement le texte dans `index.html` pour toutes les sections (titres, descriptions, expériences, formations, etc.).
-2.  **Photo de Profil :** Remplacez le fichier `photo_alex.jpg` par votre propre photo, en gardant **exactement le même nom de fichier**.
+2.  **Photo de Profil :** Remplacez le fichier `photo_alex.png` par votre propre photo, en gardant **exactement le même nom de fichier**.
 3.  **CV PDF :** Placez votre CV au format PDF dans le dossier `assets/` et assurez-vous que le nom du fichier correspond à celui utilisé dans le lien de téléchargement (`href="assets/cv-alexandre-berge.pdf"`) dans `index.html`. Modifiez également l'attribut `download` si souhaité.
 4.  **Mémoire PDF (MSIC) :** Placez votre mémoire dans `assets/` et mettez à jour le lien (`href` et `download`) dans la carte de formation MSIC dans `index.html`.
 5.  **Images "Intérêts" :** Remplacez les images d'exemple (`assets/interest-....jpg`) par les vôtres. Mettez à jour les URLs dans `style.css` au niveau des classes `.interest--maroquinerie .interest-bg-image`, `.interest--art .interest-bg-image`, etc.
