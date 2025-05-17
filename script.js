@@ -153,18 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // on pourrait la remplacer par un listener JS plus sophistiqué ici,
     // mais pour le moment, on garde la solution HTML simple.
 
-    // --- Soumission du Formulaire de Contact (Simulation) ---
+    // --- Soumission du Formulaire de Contact ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Empêche l'envoi réel du formulaire
-            const nameInput = document.getElementById('name');
-            const name = nameInput?.value.trim() || 'Visiteur'; // Utiliser trim()
-
-            // !!! Remplacer cette alerte par la logique d'envoi réelle (ex: via Netlify Forms, Formspree) !!!
-            alert(`Merci ${name}, votre message a été reçu ! (Ceci est une simulation)`);
-
-            contactForm.reset(); // Vide le formulaire après la simulation
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    alert('Merci, votre message a été envoyé !');
+                    contactForm.reset();
+                } else {
+                    alert("Une erreur s'est produite. Veuillez réessayer.");
+                }
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi du formulaire:', error);
+                alert("Une erreur s'est produite. Veuillez réessayer.");
+            }
         });
     }
 
