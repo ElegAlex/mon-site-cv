@@ -102,11 +102,13 @@ Consultez la documentation de la plateforme choisie pour les détails spécifiqu
 
 ## ✉️ Gestion du Formulaire de Contact
 
-**Important :** Le code JavaScript fourni (`script.js`) **simule** uniquement la soumission du formulaire avec une `alert()`. Pour recevoir réellement les messages :
+**Important :** Le script `script.js` envoie les données du formulaire avec `fetch()` vers l'URL définie dans `action` et affiche simplement une alerte de succès ou d'erreur. Pour recevoir réellement les messages :
 
-1.  **Choisissez un service de backend pour formulaire :**
+1.  **Choisissez un service de backend pour formulaire (ou votre propre serveur) :**
     *   **Netlify Forms :** Si hébergé sur Netlify, ajoutez simplement l'attribut `netlify` (ou `data-netlify="true"`) à votre balise `<form>` dans `index.html`. Assurez-vous que tous les champs (`input`, `textarea`) ont un attribut `name`. C'est la solution la plus simple si vous utilisez Netlify.
     *   **Formspree.io / FormSubmit.co :** Créez un compte, obtenez une URL d'endpoint et remplacez `action="..."` dans votre balise `<form>` par cette URL. N'oubliez pas d'ajouter `method="POST"`.
+    *   Toute autre API personnelle : indiquez l'URL de votre backend.
+    *   Remplacez l'exemple `https://formspree.io/f/your-form-id` par le lien fourni. Sur OVH, utilisez un service externe ou votre propre serveur pour traiter le formulaire.
 2.  **(Optionnel mais recommandé si vous n'utilisez PAS Netlify Forms) Supprimez/Commentez le Listener JavaScript :** Si vous utilisez un service externe comme Formspree, commentez ou supprimez le bloc `contactForm.addEventListener('submit', ...)` dans `script.js` pour laisser le navigateur gérer la soumission standard vers l'URL `action`.
 
 ---
