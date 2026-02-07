@@ -346,8 +346,14 @@ span.exp-realisation-category::before { content: ''; position: absolute; left: 0
 .project-depotdoc h4 { color: #065f46; } .project-depotdoc .achievement-metric div:first-child { color: #047857; } .project-depotdoc .achievement-metric div:last-child { color: #059669; } .project-depotdoc p { color: #065f46; }
 .project-km { background: linear-gradient(to right, #f5f3ff, #eef2ff); border-left-color: #8b5cf6; animation-name: subtle-glow-indigo; }
 .project-km h4 { color: #5b21b6; } .project-km .achievement-metric div:first-child { color: #6d28d9; } .project-km .achievement-metric div:last-child { color: #7c3aed; } .project-km p { color: #5b21b6; }
+
+/* CPAM 92 - Flagship Project Card */
+.project-cpam92 { background: linear-gradient(to right, #eff6ff, #dbeafe); border-left-color: #3b82f6; animation-name: subtle-glow-blue; }
+.project-cpam92 h4 { color: #1e40af; } .project-cpam92 .achievement-metric div:first-child { color: #1d4ed8; } .project-cpam92 .achievement-metric div:last-child { color: #2563eb; } .project-cpam92 p { color: #1e40af; }
+
 @keyframes subtle-glow-green { from { box-shadow: 0 0 5px rgba(16, 185, 129, 0.1); } to { box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); } }
 @keyframes subtle-glow-indigo { from { box-shadow: 0 0 5px rgba(139, 92, 246, 0.1); } to { box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); } }
+@keyframes subtle-glow-blue { from { box-shadow: 0 0 5px rgba(59, 130, 246, 0.1); } to { box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); } }
 .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
 .skill-tag-highlight { background: linear-gradient(45deg, var(--primary-accent), var(--primary-accent-darker)); color: var(--primary-dark) !important; font-weight: 600; }
 .academic-badge, .tech-badge { position: absolute; top: 1rem; right: 1rem; padding: 0.25rem 0.6rem; border-radius: 0.375rem; font-size: 0.7rem; font-weight: 600; box-shadow: var(--shadow-soft); z-index: 5; }
