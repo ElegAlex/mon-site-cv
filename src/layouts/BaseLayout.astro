@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre Berge - Responsable Département Informatique | CPAM des Hauts-de-Seine</title>
+    <meta name="description" content="Alexandre Berge, Responsable Département Informatique à la CPAM des Hauts-de-Seine. 17+ ans management, 45 collaborateurs, 1400 postes, expert transformation digitale secteur santé/protection sociale.">
+    <meta name="keywords" content="DSI, Responsable Département Informatique, Santé Protection Sociale, Management IT, DepotDoc, Alexandre Berge, Nanterre, CPAM, Assurance Maladie, ITIL, Transformation Digitale">
+
+    <meta property="og:title" content="Alexandre Berge - Responsable Département Informatique | CPAM 92">
+    <meta property="og:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale secteur santé/protection sociale.">
+    <meta property="og:image" content="https://alexandre-berge.fr/images/screenshot.png">
+    <meta property="og:url" content="https://alexandre-berge.fr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alexandre Berge - Responsable Département Informatique | CPAM 92">
+    <meta name="twitter:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale secteur santé/protection sociale.">
+    <meta name="twitter:image" content="https://alexandre-berge.fr/images/screenshot.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background-light antialiased overflow-hidden">
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 bg-primary-dark flex items-center justify-center z-[200]">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <slot />
+
+    <!-- Home Button -->
+    <button id="home-button" title="Retour à l'accueil" class="home-button-style">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Progress Dots Navigation -->
+    <div class="progress-dots">
+        <div class="progress-dot active" data-index="0" title="Accueil"></div>
+        <div class="progress-dot" data-index="1" title="Profil"></div>
+        <div class="progress-dot" data-index="2" title="Expériences"></div>
+        <div class="progress-dot" data-index="3" title="Formations"></div>
+        <div class="progress-dot" data-index="4" title="Compétences"></div>
+        <div class="progress-dot" data-index="5" title="Publications"></div>
+        <div class="progress-dot" data-index="6" title="Contact"></div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Section navigation">
+        <div class="nav-items-wrapper">
+            <a href="#profil" class="nav-item" data-target="1"><i class="fas fa-user-tie"></i><span class="nav-text">Profil</span></a>
+            <a href="#experience" class="nav-item" data-target="2"><i class="fas fa-briefcase"></i><span class="nav-text">Expériences</span></a>
+            <a href="#formation" class="nav-item" data-target="3"><i class="fas fa-graduation-cap"></i><span class="nav-text">Formations</span></a>
+            <a href="#competences" class="nav-item" data-target="4"><i class="fas fa-cogs"></i><span class="nav-text">Compétences</span></a>
+            <a href="#interets" class="nav-item" data-target="5"><i class="fas fa-lightbulb"></i><span class="nav-text">Publications</span></a>
+            <a href="#contact" class="nav-item" data-target="6"><i class="fas fa-paper-plane"></i><span class="nav-text">Contact</span></a>
+        </div>
+    </nav>
+
+    <script src="../scripts/navigation.ts"></script>
+</body>
+</html>

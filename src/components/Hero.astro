@@ -1,0 +1,74 @@
+---
+// src/components/Hero.astro
+---
+
+<section id="accueil" class="section-panel hero-section">
+    <div class="hero-background"><div class="hero-bg-pattern"></div><div class="hero-gradient-overlay"></div></div>
+    <div class="hero-decorations"><div class="hero-deco-shape shape1"></div><div class="hero-deco-shape shape2"></div><div class="hero-deco-shape shape3"></div></div>
+    <div class="container mx-auto px-6 hero-content">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <div class="hero-text-content">
+                <h1 class="hero-name">Alexandre Berge</h1>
+                <h2 class="hero-title">Responsable Département Informatique</h2>
+                <h3 class="hero-specialization">CPAM des Hauts-de-Seine · Secteur Santé & Protection Sociale</h3>
+
+                <div class="hero-credentials">
+                    <span class="credential-badge">
+                        <i class="fas fa-graduation-cap mr-1"></i>Master MSIC Paris 1
+                    </span>
+                    <span class="credential-badge">
+                        <i class="fas fa-certificate mr-1"></i>ITIL 4 Foundation
+                    </span>
+                    <span class="credential-badge">
+                        <i class="fas fa-users mr-1"></i>45 collaborateurs
+                    </span>
+                </div>
+
+                <div class="hero-contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i>Nanterre (92), Île-de-France</span>
+                    <span class="separator"></span>
+                    <span><i class="fas fa-phone"></i>06 65 57 64 78</span>
+                    <span class="separator"></span>
+                    <a href="mailto:contact@alexandre-berge.fr" class="hero-contact-link"><i class="fas fa-envelope"></i>contact@alexandre-berge.fr</a>
+                </div>
+
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number">17+</span>
+                        <span class="metric-label">ans Management</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">45</span>
+                        <span class="metric-label">Collaborateurs</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">1 400</span>
+                        <span class="metric-label">Postes gérés</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">250+</span>
+                        <span class="metric-label">VM / 40 serveurs</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <div class="hero-social-links">
+                        <a href="https://www.linkedin.com/in/bergealexandre" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link-hero"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.elegartech.fr" target="_blank" rel="noopener noreferrer" title="Elegartech (Blog IT)" class="social-link-hero"><i class="fas fa-laptop-code"></i></a>
+                        <a href="https://communs-numeriques.fr/" target="_blank" title="Communs Numériques (Recherche)" class="social-link-hero">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.elegartex.fr" target="_blank" rel="noopener noreferrer" title="Elegartex (Art)" class="social-link-hero"><i class="fas fa-palette"></i></a>
+                    </div>
+                    <a href="/assets/cv-alexandre-berge.pdf" download="CV_Alexandre_Berge.pdf" class="download-cv-button"><i class="fas fa-file-pdf mr-2"></i> Télécharger CV</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="profile-image-wrapper">
+                    <div class="profile-image"><img src="/images/photo_alex.png" alt="Alexandre Berge" loading="lazy"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator"><i class="fas fa-arrow-down"></i></div>
+</section>

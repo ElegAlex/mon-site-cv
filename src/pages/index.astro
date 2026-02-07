@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Profile from '../components/Profile.astro';
+import Experience from '../components/Experience.astro';
+import Formation from '../components/Formation.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<BaseLayout>
+  <div class="horizontal-scroll" id="main-scroll">
+    <Hero />
+    <Profile />
+    <Experience />
+    <Formation />
+    <Skills />
+    <Projects />
+    <Contact />
+  </div>
+</BaseLayout>
