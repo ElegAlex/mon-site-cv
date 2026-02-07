@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <html lang="fr">
@@ -58,6 +59,13 @@ import '../styles/global.css';
     }
     </script>
 
+    <!-- Anti-flash: apply theme before render -->
+    <script is:inline>
+        const t = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -77,7 +85,8 @@ import '../styles/global.css';
                 <a href="#projets" class="nav-link">Projets</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2">
+                <ThemeToggle />
                 <a href="/assets/cv-alexandre-berge.pdf" download class="download-btn hidden sm:inline-flex">
                     <i class="fas fa-file-pdf"></i> CV PDF
                 </a>

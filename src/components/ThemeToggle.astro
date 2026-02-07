@@ -1,0 +1,37 @@
+---
+// src/components/ThemeToggle.astro — Phase 4
+---
+
+<button
+    id="theme-toggle"
+    class="theme-toggle"
+    aria-label="Basculer thème clair/sombre"
+    title="Basculer thème clair/sombre"
+>
+    <i class="fas fa-moon" id="theme-icon-dark"></i>
+    <i class="fas fa-sun theme-icon-hidden" id="theme-icon-light"></i>
+</button>
+
+<script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function updateIcons(theme: string) {
+        const darkIcon = document.getElementById('theme-icon-dark');
+        const lightIcon = document.getElementById('theme-icon-light');
+        if (darkIcon) darkIcon.classList.toggle('theme-icon-hidden', theme === 'dark');
+        if (lightIcon) lightIcon.classList.toggle('theme-icon-hidden', theme === 'light');
+    }
+
+    // Apply current theme icons (theme already set by inline script in <head>)
+    const currentTheme = html.getAttribute('data-theme') || 'light';
+    updateIcons(currentTheme);
+
+    toggle?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcons(next);
+    });
+</script>

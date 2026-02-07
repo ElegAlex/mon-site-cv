@@ -37,6 +37,7 @@
    Design tokens
    ========================================================================== */
 :root {
+  color-scheme: light dark;
   --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
@@ -45,6 +46,63 @@
   --radius-lg: 1rem;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ==========================================================================
+   Dark mode overrides
+   ========================================================================== */
+[data-theme="dark"] {
+  --color-surface: #0f1729;
+  --color-surface-card: #1a2744;
+  --color-surface-dark: #080e1b;
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-inverse: #1a2744;
+  --color-text-muted: #64748b;
+  --color-border: #2d3a50;
+  --color-border-accent: rgba(45, 143, 143, 0.3);
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .site-header {
+  background: rgba(15, 23, 41, 0.9);
+  border-bottom-color: var(--color-border);
+}
+[data-theme="dark"] .mobile-menu {
+  background: var(--color-surface-card);
+  border-top-color: var(--color-border);
+}
+[data-theme="dark"] .nav-link:hover { background: rgba(45, 143, 143, 0.1); }
+[data-theme="dark"] .experience-section { background: linear-gradient(180deg, var(--color-surface-card) 0%, var(--color-surface) 100%); }
+[data-theme="dark"] .skills-section { background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-card) 100%); }
+[data-theme="dark"] .exp-body strong { color: var(--color-teal-light); }
+[data-theme="dark"] .exp-title { color: var(--color-text-primary); }
+[data-theme="dark"] .exp-company { color: var(--color-teal-light); }
+[data-theme="dark"] p.exp-category-title { color: var(--color-text-primary); }
+[data-theme="dark"] span.exp-realisation-category { color: var(--color-text-primary); }
+[data-theme="dark"] .section-heading { color: var(--color-text-primary); }
+[data-theme="dark"] .section-heading i { color: var(--color-teal-light); }
+[data-theme="dark"] .card-toggle-left h3 { color: var(--color-text-primary); }
+[data-theme="dark"] .card-toggle-left i:first-child { color: var(--color-teal-light); }
+[data-theme="dark"] .card-content-inner strong { color: var(--color-teal-light); }
+[data-theme="dark"] .github-card h3 { color: var(--color-text-primary); }
+[data-theme="dark"] .blog-feed-card-header h4 { color: var(--color-text-primary); }
+[data-theme="dark"] .blog-post-item a { color: var(--color-text-primary); }
+[data-theme="dark"] .interest-card h4 { color: var(--color-text-primary); }
+[data-theme="dark"] .profile-core-card span { color: var(--color-text-primary); }
+[data-theme="dark"] .principle-text { color: var(--color-text-primary); }
+[data-theme="dark"] .principles-title { color: var(--color-text-primary); }
+[data-theme="dark"] .github-card-status.status-active { background: rgba(5, 150, 105, 0.15); color: #34d399; }
+[data-theme="dark"] .github-card-status.status-production { background: rgba(37, 99, 235, 0.15); color: #60a5fa; }
+[data-theme="dark"] .badge-research { background: rgba(5, 150, 105, 0.15); color: #34d399; }
+[data-theme="dark"] .back-to-top { border-color: var(--color-border); }
+/* Contact section always dark, keep light text */
+[data-theme="dark"] .contact-section { color: #94a3b8; }
+[data-theme="dark"] .section-heading-dark { color: #f0f4f8; }
+[data-theme="dark"] .contact-subheading { color: #f0f4f8; }
+[data-theme="dark"] .contact-input { color: #f0f4f8; }
+[data-theme="dark"] .contact-detail-item h4 { color: #f0f4f8; }
+[data-theme="dark"] .blog-feed-title { color: var(--color-text-primary); }
 
 /* ==========================================================================
    Base
@@ -800,7 +858,77 @@ textarea.contact-input { resize: vertical; min-height: 100px; }
 
 @supports not (animation-timeline: view()) {
   .reveal { opacity: 1; transform: none; }
+  .stagger-reveal > * { opacity: 1; transform: none; }
 }
+
+/* ==========================================================================
+   Staggered reveal animations
+   ========================================================================== */
+.stagger-reveal > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.5s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+.stagger-reveal > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-reveal > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-reveal > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-reveal > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-reveal > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-reveal > *:nth-child(6) { animation-delay: 400ms; }
+
+/* ==========================================================================
+   Tech accents
+   ========================================================================== */
+.section-heading::before {
+  content: '>';
+  font-family: var(--font-mono);
+  color: var(--color-teal);
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+.section-heading-dark::before {
+  content: '>';
+  font-family: var(--font-mono);
+  color: var(--color-teal-light);
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--color-navy-light);
+  color: var(--color-teal-light);
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   Theme toggle
+   ========================================================================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  font-size: 0.95rem;
+}
+.theme-toggle:hover {
+  background: rgba(45, 143, 143, 0.08);
+  color: var(--color-teal);
+  border-color: var(--color-border-accent);
+}
+.theme-icon-hidden { display: none; }
 
 /* ==========================================================================
    Responsive
