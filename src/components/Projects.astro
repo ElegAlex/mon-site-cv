@@ -1,96 +1,50 @@
 ---
-// src/components/Projects.astro
+// src/components/Projects.astro — Phase 2 (interest cards)
 ---
 
-<section id="interets" class="section-panel interests-section-v3">
-    <div class="container mx-auto px-6">
-        <h2 class="section-heading"><i class="fas fa-lightbulb"></i> Publications & Projets Personnels</h2>
-        <p class="section-intro -mt-4 mb-10">
-            Veille technologique, recherche académique et passions personnelles.
-        </p>
-        <div class="interests-grid-v3">
+<section id="projets" class="section interests-section">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-heading reveal"><i class="fas fa-lightbulb"></i> Publications & Projets Personnels</h2>
+        <p class="section-intro reveal">Veille technologique, recherche académique et passions personnelles.</p>
+        <div class="interests-grid">
 
             <!-- Communs Numériques -->
-            <div class="flip-card interest-flip-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front interest-front interest--commons">
-                        <div class="interest-icon-v3"><i class="fas fa-users-cog"></i></div>
-                        <h3 class="interest-title-v3">Communs Numériques</h3>
-                        <span class="skill-cta">Voir détails</span>
-                        <div class="academic-badge" style="background-color: #f0fdf4; color: #065f46;">
-                            <i class="fas fa-feather-alt mr-1"></i>Projet & Veille
-                        </div>
-                    </div>
-                    <div class="flip-card-back interest-back">
-                        <h4 class="interest-back-title">Communs Numériques</h4>
-                        <p class="interest-back-desc">
-                            Blog de veille et d'analyse sur les <strong>communs numériques</strong>. J'y explore leur potentiel de transformation pour les entreprises et administrations.
-                        </p>
-                        <a href="https://communs-numeriques.fr/" target="_blank" rel="noopener noreferrer" class="interest-link-v3">
-                            Visiter le blog <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="interest-card reveal">
+                <div class="interest-card-icon"><i class="fas fa-users-cog"></i></div>
+                <span class="interest-card-badge badge-research"><i class="fas fa-feather-alt mr-1"></i>Projet & Veille</span>
+                <h3>Communs Numériques</h3>
+                <p>Blog de veille et d'analyse sur les <strong>communs numériques</strong>. J'y explore leur potentiel de transformation pour les entreprises et administrations.</p>
+                <a href="https://communs-numeriques.fr/" target="_blank" rel="noopener noreferrer" class="interest-link">
+                    Visiter le blog <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
 
             <!-- Veille IT (Elegartech) -->
-            <div class="flip-card interest-flip-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front interest-front interest--tech">
-                        <div class="interest-icon-v3"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="interest-title-v3">Veille IT & Blog Technique</h3>
-                        <span class="skill-cta">Voir détails</span>
-                        <div class="tech-badge">
-                            <i class="fas fa-microchip mr-1"></i>Vision IT
-                        </div>
-                    </div>
-                    <div class="flip-card-back interest-back">
-                        <h4 class="interest-back-title">Elegartech.fr</h4>
-                        <p class="interest-back-desc">
-                            Blog dédié à l'analyse des tendances technologiques : IA, Cloud, Open Source, et stratégies de Transformation Digitale.
-                        </p>
-                        <a href="https://www.elegartech.fr" target="_blank" rel="noopener noreferrer" class="interest-link-v3">
-                            Elegartech.fr <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="interest-card reveal">
+                <div class="interest-card-icon"><i class="fas fa-laptop-code"></i></div>
+                <span class="interest-card-badge badge-tech"><i class="fas fa-microchip mr-1"></i>Vision IT</span>
+                <h3>Veille IT & Blog Technique</h3>
+                <p>Blog dédié à l'analyse des tendances technologiques : IA, Cloud, Open Source, et stratégies de Transformation Digitale.</p>
+                <a href="https://www.elegartech.fr" target="_blank" rel="noopener noreferrer" class="interest-link">
+                    Elegartech.fr <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
 
             <!-- Artiste Numérique -->
-            <div class="flip-card interest-flip-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front interest-front interest--art">
-                        <div class="interest-icon-v3"><i class="fas fa-paint-brush"></i></div>
-                        <h3 class="interest-title-v3">Artiste Numérique</h3>
-                        <span class="skill-cta">Voir détails</span>
-                    </div>
-                    <div class="flip-card-back interest-back">
-                        <h4 class="interest-back-title">Elegartex.fr</h4>
-                        <p class="interest-back-desc">
-                            Exploration créative digitale et création artistique assistée par les nouvelles technologies.
-                        </p>
-                        <a href="https://www.elegartex.fr" target="_blank" rel="noopener noreferrer" class="interest-link-v3">
-                            Elegartex.fr <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="interest-card reveal">
+                <div class="interest-card-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Artiste Numérique</h3>
+                <p>Exploration créative digitale et création artistique assistée par les nouvelles technologies.</p>
+                <a href="https://www.elegartex.fr" target="_blank" rel="noopener noreferrer" class="interest-link">
+                    Elegartex.fr <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
 
             <!-- Maroquinerie -->
-            <div class="flip-card interest-flip-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front interest-front interest--maroquinerie">
-                        <div class="interest-icon-v3"><i class="fas fa-toolbox"></i></div>
-                        <h3 class="interest-title-v3">Restauration Maroquinerie</h3>
-                        <span class="skill-cta">Voir détails</span>
-                    </div>
-                    <div class="flip-card-back interest-back">
-                        <h4 class="interest-back-title">Artisanat du Cuir</h4>
-                        <p class="interest-back-desc">
-                            Patience, précision et sens du détail appliqués à la restauration de pièces de maroquinerie anciennes.
-                        </p>
-                    </div>
-                </div>
+            <div class="interest-card reveal">
+                <div class="interest-card-icon"><i class="fas fa-toolbox"></i></div>
+                <h3>Restauration Maroquinerie</h3>
+                <p>Patience, précision et sens du détail appliqués à la restauration de pièces de maroquinerie anciennes.</p>
             </div>
 
         </div>

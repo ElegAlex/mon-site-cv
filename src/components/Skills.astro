@@ -1,23 +1,28 @@
 ---
-// src/components/Skills.astro
+// src/components/Skills.astro — Phase 2 (expandable cards)
 ---
 
-<section id="competences" class="section-panel skills-section-v2">
-    <div class="container mx-auto px-6">
-        <h2 class="section-heading"><i class="fas fa-cogs"></i> Compétences & Expertises</h2>
-        <p class="section-intro -mt-4 mb-10">Synthèse de mes expertises stratégiques, techniques et sectorielles.</p>
-        <div class="skills-grid-container">
+<section id="competences" class="section skills-section">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-heading reveal"><i class="fas fa-cogs"></i> Compétences & Expertises</h2>
+        <p class="section-intro reveal">Synthèse de mes expertises stratégiques, techniques et sectorielles.</p>
+        <div class="grid md:grid-cols-2 gap-4">
 
             <!-- Expertise Sectorielle -->
-            <div class="flip-card skill-card-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front skill-front">
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
                         <i class="fas fa-heartbeat"></i>
                         <h3>Expertise Santé/Social</h3>
-                        <span class="skill-cta">Voir détails</span>
                     </div>
-                    <div class="flip-card-back skill-back">
-                        <h4>Secteur Santé/Protection Sociale</h4>
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
                         <ul>
                             <li><strong>17+ ans d'expérience</strong> Assurance Maladie</li>
                             <li>Environnement ultra-réglementé (RGPD, HDS)</li>
@@ -31,15 +36,20 @@
             </div>
 
             <!-- Direction & Gouvernance -->
-            <div class="flip-card skill-card-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front skill-front">
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
                         <i class="fas fa-chess-king"></i>
                         <h3>Direction & Gouvernance</h3>
-                        <span class="skill-cta">Voir détails</span>
                     </div>
-                    <div class="flip-card-back skill-back">
-                        <h4>Direction & Gouvernance</h4>
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
                         <ul>
                             <li>Leadership IT & Management transverse</li>
                             <li>Pilotage Budgets & ROI</li>
@@ -53,22 +63,27 @@
             </div>
 
             <!-- Architecture & Opérations -->
-            <div class="flip-card skill-card-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front skill-front">
+            <div class="expandable-card card-dark reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
                         <i class="fas fa-server"></i>
                         <h3>Architecture & Opérations</h3>
-                        <span class="skill-cta">Voir détails</span>
                     </div>
-                    <div class="flip-card-back skill-back tech-back">
-                        <h4>Architecture & Opérations</h4>
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
                         <ul>
                             <li>Infrastructure Multi-sites</li>
                             <li>Support & Services (ITSM, KPI)</li>
                             <li>Business Intelligence (Data Governance)</li>
                             <li>Développement (DevOps CI/CD, Symfony)</li>
                         </ul>
-                        <h5 class="lang-title">Focus Techno</h5>
+                        <h5 style="font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">Focus Techno</h5>
                         <div class="skill-tags-container">
                             <span class="skill-tag skill-tag-highlight">Open Source</span>
                             <span class="skill-tag skill-tag-highlight">IA (RAG)</span>
@@ -85,25 +100,30 @@
             </div>
 
             <!-- Savoir-être & Langues -->
-            <div class="flip-card skill-card-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front skill-front">
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
                         <i class="fas fa-brain"></i>
                         <h3>Savoir-être & Langues</h3>
-                        <span class="skill-cta">Voir détails</span>
                     </div>
-                    <div class="flip-card-back skill-back">
-                        <h4>Savoir-être & Langues</h4>
-                        <ul class="soft-skill-list">
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <ul>
                             <li>Leadership Fédérateur</li>
                             <li>Vision Stratégique</li>
                             <li>Analyse & Synthèse</li>
                             <li>Communication</li>
                             <li>Pragmatisme</li>
                         </ul>
-                        <h5 class="lang-title">Langues</h5>
-                        <p class="lang-item">Français (Natif)</p>
-                        <p class="lang-item">Anglais (Professionnel)</p>
+                        <h5 style="font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">Langues</h5>
+                        <p style="font-size: 0.85rem; margin-bottom: 0.25rem;">Français (Natif)</p>
+                        <p style="font-size: 0.85rem;">Anglais (Professionnel)</p>
                     </div>
                 </div>
             </div>

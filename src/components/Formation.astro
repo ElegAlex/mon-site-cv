@@ -1,27 +1,34 @@
 ---
-// src/components/Formation.astro
+// src/components/Formation.astro — Phase 2 (expandable cards)
 ---
 
-<section id="formation" class="section-panel formation-section-v2">
-    <div class="container mx-auto px-6">
-        <h2 class="section-heading"><i class="fas fa-graduation-cap"></i> Formation & Certification</h2>
-        <p class="section-intro -mt-4 mb-10">Mon parcours académique et mes certifications clés.</p>
-        <div class="formation-grid-container">
+<section id="formation" class="section formation-section">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-heading reveal"><i class="fas fa-graduation-cap"></i> Formation & Certification</h2>
+        <p class="section-intro reveal">Mon parcours académique et mes certifications clés.</p>
+        <div class="grid gap-4 max-w-3xl">
 
             <!-- Master MSIC -->
-            <div class="flip-card formation-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front formation-front">
-                        <div class="formation-front-icon small"><i class="fas fa-university"></i></div>
-                        <h3 class="formation-front-title small">Executive Master 2 - Management des Systèmes d'Information et de Connaissances</h3>
-                        <p class="formation-front-subtitle small">Paris 1 Panthéon Sorbonne</p>
-                        <span class="formation-front-cta small">Détails</span>
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <h3>Executive Master 2 - MSIC</h3>
+                            <span class="text-sm text-text-secondary">Paris 1 Panthéon Sorbonne</span>
+                        </div>
                     </div>
-                    <div class="flip-card-back formation-back">
-                        <h4 class="formation-back-card-title">Executive Master 2 - Management des Systèmes d'Information et de Connaissances</h4>
-                        <p class="formation-back-institution">Univ. Paris 1 Panthéon Sorbonne <span class="formation-back-date">(2024 - 2025)</span></p>
-                        <p class="formation-back-subtitle">Contenu principal :</p>
-                        <ul class="formation-back-course-list">
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p class="formation-meta"><strong>Univ. Paris 1 Panthéon Sorbonne</strong> — <span class="date">2024 - 2025</span></p>
+                        <p class="font-semibold text-navy mb-2" style="color: var(--color-navy); font-weight: 600; margin-bottom: 0.5rem;">Management des Systèmes d'Information et de Connaissances :</p>
+                        <ul class="formation-courses">
                             <li>Stratégie d'organisation et conduite du changement</li>
                             <li>Ingénierie des exigences</li>
                             <li>Modélisation de l'entreprise et de son évolution</li>
@@ -32,10 +39,10 @@
                             <li>Système d'information décisionnel et Data Mining</li>
                         </ul>
                         <div class="formation-memoire">
-                            <p class="memoire-title">Mémoire :</p>
+                            <p class="memoire-title">Mémoire</p>
                             <p class="memoire-subject">"Les facteurs d'institutionnalisation des communs numériques dans l'administration"</p>
-                            <a href="https://communs-numeriques.fr/articles/memoire-institutionnalisation-communs-numeriques" target="_blank" rel="noopener noreferrer" class="download-memory-button">
-                                <i class="fas fa-external-link-alt mr-1.5"></i> Lire en ligne
+                            <a href="https://communs-numeriques.fr/articles/memoire-institutionnalisation-communs-numeriques" target="_blank" rel="noopener noreferrer" class="memoire-link">
+                                <i class="fas fa-external-link-alt"></i> Lire en ligne
                             </a>
                         </div>
                     </div>
@@ -43,19 +50,26 @@
             </div>
 
             <!-- Master Droit -->
-            <div class="flip-card formation-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front formation-front">
-                        <div class="formation-front-icon small"><i class="fas fa-balance-scale"></i></div>
-                        <h3 class="formation-front-title small">Master 2 - Droit et Sciences du Travail Européen</h3>
-                        <p class="formation-front-subtitle small">Toulouse 1 Capitole</p>
-                        <span class="formation-front-cta small">Détails</span>
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
+                        <i class="fas fa-balance-scale"></i>
+                        <div>
+                            <h3>Master 2 - Droit et Sciences du Travail Européen</h3>
+                            <span class="text-sm text-text-secondary">Toulouse 1 Capitole</span>
+                        </div>
                     </div>
-                    <div class="flip-card-back formation-back">
-                        <h4 class="formation-back-card-title">Master 2 - Droit et Sciences du Travail Européen</h4>
-                        <p class="formation-back-institution">Univ. Toulouse 1 Capitole <span class="formation-back-date">(2013 - 2014)</span></p>
-                        <p class="formation-back-subtitle">Contenu principal :</p>
-                        <ul class="formation-back-course-list">
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p class="formation-meta"><strong>Univ. Toulouse 1 Capitole</strong> — <span class="date">2013 - 2014</span></p>
+                        <p style="color: var(--color-navy); font-weight: 600; margin-bottom: 0.5rem;">Contenu principal :</p>
+                        <ul class="formation-courses">
                             <li>Droit des relations individuelles de travail</li>
                             <li>Droit du travail et structure sociétaire</li>
                             <li>Droit social des entreprises en difficulté</li>
@@ -66,7 +80,7 @@
                             <li>Droit social européen et international</li>
                         </ul>
                         <div class="formation-memoire">
-                            <p class="memoire-title">Mémoire :</p>
+                            <p class="memoire-title">Mémoire</p>
                             <p class="memoire-subject">"Le poids des partenaires sociaux dans la création du droit social en Europe"</p>
                         </div>
                     </div>
@@ -74,30 +88,36 @@
             </div>
 
             <!-- ITIL -->
-            <div class="flip-card formation-card" ontouchstart="this.classList.toggle('hover');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front formation-front">
-                        <div class="formation-front-icon small"><i class="fas fa-certificate"></i></div>
-                        <h3 class="formation-front-title small">ITIL® 4 Foundation</h3>
-                        <p class="formation-front-subtitle small">Certification ITSM</p>
-                        <span class="formation-front-cta small">Détails</span>
+            <div class="expandable-card reveal" data-expanded="false">
+                <button
+                    class="card-toggle"
+                    aria-expanded="false"
+                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
+                >
+                    <div class="card-toggle-left">
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <h3>ITIL® 4 Foundation</h3>
+                            <span class="text-sm text-text-secondary">PeopleCert</span>
+                        </div>
                     </div>
-                    <div class="flip-card-back formation-back">
-                        <h4 class="formation-back-card-title">ITIL® 4 Foundation</h4>
-                        <p class="formation-back-institution">PeopleCert</p>
-                        <p class="formation-back-subtitle">Contenu clé :</p>
-                        <ul class="formation-back-course-list itil-list">
-                            <li>Le Système de Valeur des Services (SVS - Service Value System)</li>
-                            <li>Les 7 Principes Directeurs d'ITIL (Guiding Principles)</li>
-                            <li>Introduction aux Pratiques ITIL Clés :
-                                <ul class="itil-practices-sublist">
-                                    <li>Amélioration Continue (Continual Improvement)</li>
-                                    <li>Habilitation du Changement (Change Enablement)</li>
-                                    <li>Gestion des Incidents (Incident Management)</li>
-                                    <li>Gestion des Problèmes (Problem Management)</li>
-                                    <li>Centre de Services (Service Desk)</li>
-                                    <li>Gestion des Niveaux de Service (Service Level Management)</li>
-                                    <li>Gestion des Demandes de Service (Service Request Management)</li>
+                    <i class="fas fa-chevron-down card-chevron"></i>
+                </button>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p style="color: var(--color-navy); font-weight: 600; margin-bottom: 0.5rem;">Contenu clé :</p>
+                        <ul class="formation-courses">
+                            <li>Le Système de Valeur des Services (SVS)</li>
+                            <li>Les 7 Principes Directeurs d'ITIL</li>
+                            <li>Pratiques ITIL Clés :
+                                <ul class="itil-sublist">
+                                    <li>Amélioration Continue</li>
+                                    <li>Habilitation du Changement</li>
+                                    <li>Gestion des Incidents</li>
+                                    <li>Gestion des Problèmes</li>
+                                    <li>Centre de Services</li>
+                                    <li>Gestion des Niveaux de Service</li>
+                                    <li>Gestion des Demandes de Service</li>
                                 </ul>
                             </li>
                         </ul>
