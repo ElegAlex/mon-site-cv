@@ -1,0 +1,42 @@
+{
+  "elegartech": [
+    {
+      "title": "IA générative et open source : état des lieux 2025",
+      "link": "https://www.elegartech.fr",
+      "pubDate": "2025-01-15",
+      "contentSnippet": "Analyse des modèles open source d'IA générative et de leur impact sur la transformation digitale des organisations."
+    },
+    {
+      "title": "GLPI : retour d'expérience sur un déploiement ITSM complet",
+      "link": "https://www.elegartech.fr",
+      "pubDate": "2024-11-20",
+      "contentSnippet": "Comment déployer GLPI comme outil ITSM central : catalogue de services, gestion des incidents, et amélioration continue."
+    },
+    {
+      "title": "DevOps dans le secteur public : contraintes et opportunités",
+      "link": "https://www.elegartech.fr",
+      "pubDate": "2024-09-10",
+      "contentSnippet": "Adapter les pratiques DevOps aux contraintes réglementaires et organisationnelles du secteur public."
+    }
+  ],
+  "communsNumeriques": [
+    {
+      "title": "Les facteurs d'institutionnalisation des communs numériques",
+      "link": "https://communs-numeriques.fr/articles/memoire-institutionnalisation-communs-numeriques",
+      "pubDate": "2025-06-01",
+      "contentSnippet": "Synthèse du mémoire de recherche sur les mécanismes d'adoption des communs numériques dans l'administration publique."
+    },
+    {
+      "title": "Communs numériques et souveraineté : enjeux pour les DSI publics",
+      "link": "https://communs-numeriques.fr",
+      "pubDate": "2025-03-15",
+      "contentSnippet": "Comment les communs numériques contribuent à la souveraineté numérique des administrations françaises."
+    },
+    {
+      "title": "Open source vs communs numériques : quelles différences ?",
+      "link": "https://communs-numeriques.fr",
+      "pubDate": "2024-12-01",
+      "contentSnippet": "Clarification des concepts : ce qui distingue un logiciel open source d'un commun numérique, et pourquoi c'est important."
+    }
+  ]
+}
