@@ -20,7 +20,7 @@ const experiences = [
         items: [
           "Direction de 3 services : Développement, Support/Infra, Correspondants IT + Data/BI",
           "Pilotage de 30+ applications locales et contribution aux programmes nationaux",
-          "Architecture : 40 serveurs physiques, clusters HA, monitoring Centreon",
+          "Architecture : 40 serveurs physiques, haute disponibilité, monitoring PRTG",
         ],
       },
     ],
@@ -210,7 +210,7 @@ const experiences = [
   <!-- Progress dots -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex items-center gap-3">
     {experiences.map((exp, i) => (
-      <button class={`exp-dot w-2 h-2 rounded-full transition-all ${i === 0 ? 'bg-teal-400 w-8' : 'bg-white/30'}`} aria-label={exp.org} title={exp.org}></button>
+      <button class="exp-dot w-2 h-2 rounded-full transition-all bg-white/30" aria-label={exp.org} title={exp.org}></button>
     ))}
   </div>
 

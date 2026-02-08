@@ -226,8 +226,23 @@ function initAnimations() {
         });
 
         // Progress dots + counter
-        const dots = document.querySelectorAll('.exp-dot');
+        const dots = document.querySelectorAll<HTMLElement>('.exp-dot');
         const expCounter = document.querySelector('.exp-counter');
+
+        // Initialiser le premier dot au chargement
+        const updateDots = (activeIndex: number) => {
+          dots.forEach((d, j) => {
+            if (j === activeIndex) {
+              d.style.width = '2rem';
+              d.style.backgroundColor = '#2d8f8f';
+            } else {
+              d.style.width = '0.5rem';
+              d.style.backgroundColor = 'rgba(255,255,255,0.3)';
+            }
+          });
+        };
+        updateDots(0);
+
         if (dots.length > 0 || expCounter) {
           ScrollTrigger.create({
             trigger: expContainer,
@@ -236,7 +251,7 @@ function initAnimations() {
             scrub: true,
             onUpdate: (self) => {
               const activeIndex = Math.round(self.progress * (expPanels.length - 1));
-              dots.forEach((d, j) => d.classList.toggle('active', j === activeIndex));
+              updateDots(activeIndex);
               if (expCounter) expCounter.textContent = String(activeIndex + 1);
             },
           });
