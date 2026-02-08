@@ -92,33 +92,34 @@ const techCategories = [
       <span class="font-mono text-teal-500 mr-3">&gt;</span>Formation & Compétences
     </h2>
 
-    <!-- Bento grid — 2 cols md, 4 cols lg -->
+    <!-- Bento grid -->
     <div class="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
 
-      <!-- Formation cards -->
       {formations.map(f => (
-        <button class="bento-item formation-trigger formation-card p-6 rounded-xl text-left cursor-pointer group transition-all"
+        <button
+          class="bento-item formation-trigger p-6 rounded-xl text-left cursor-pointer group transition-all"
+          style="background: var(--skills-card-bg); border: 1px solid var(--skills-card-border);"
           data-formation={f.id}>
           <div class="flex items-center justify-between mb-3">
             <i class={`fas fa-${f.icon} text-amber-400 text-xl`}></i>
-            <span class="formation-year font-mono text-xs">{f.year}</span>
+            <span class="font-mono text-xs" style="color: var(--skills-accent);">{f.year}</span>
           </div>
           <h3 class="font-display font-semibold text-base mb-1">{f.title}</h3>
-          <p class="formation-org text-sm">{f.org}</p>
-          {f.subtitle && <p class="formation-subtitle text-xs mt-1">{f.subtitle}</p>}
-          <span class="formation-cta inline-flex items-center gap-1 text-xs font-mono mt-3 transition-colors">
+          <p class="text-sm" style="color: var(--skills-text-muted);">{f.org}</p>
+          {f.subtitle && <p class="text-xs mt-1" style="color: var(--skills-text-faint);">{f.subtitle}</p>}
+          <span class="inline-flex items-center gap-1 text-xs font-mono mt-3 group-hover:opacity-100 transition-opacity" style="color: var(--skills-accent); opacity: 0.5;">
             Voir détails <i class="fas fa-chevron-right text-[10px]"></i>
           </span>
         </button>
       ))}
 
       <!-- Bloc métriques -->
-      <div class="bento-item p-6 bg-teal-500/10 border border-teal-500/20 rounded-xl flex flex-col justify-center">
-        <span class="font-mono text-4xl font-bold text-teal-400 block">17+</span>
-        <span class="text-sm opacity-70 mt-2">ans d'expérience en management</span>
-        <span class="font-mono text-2xl font-bold text-amber-400 block mt-3">5+</span>
-        <span class="text-sm opacity-70 mt-1">ans de direction IT (depuis 2020)</span>
-        <span class="text-xs opacity-40 mt-2">CPAM · CARSAT · RSI · DRSM</span>
+      <div class="bento-item p-6 rounded-xl flex flex-col justify-center" style="background: rgba(45,143,143,0.1); border: 1px solid rgba(45,143,143,0.2);">
+        <span class="font-mono text-4xl font-bold block" style="color: var(--skills-accent);">17+</span>
+        <span class="text-sm mt-2" style="color: var(--skills-text-muted);">ans d'expérience en management</span>
+        <span class="font-mono text-2xl font-bold block mt-3" style="color: #d4a953;">5+</span>
+        <span class="text-sm mt-1" style="color: var(--skills-text-muted);">ans de direction IT (depuis 2020)</span>
+        <span class="text-xs mt-2" style="color: var(--skills-text-faint);">CPAM · CARSAT · RSI · DRSM</span>
       </div>
     </div>
 
@@ -126,10 +127,12 @@ const techCategories = [
     <div class="tech-tags-container space-y-8">
       {techCategories.map(cat => (
         <div>
-          <h3 class="tech-cat-label font-mono text-xs tracking-widest uppercase mb-3">{cat.label}</h3>
+          <h3 class="font-mono text-xs tracking-widest uppercase mb-3" style="color: var(--skills-text-faint);">{cat.label}</h3>
           <div class="flex flex-wrap gap-2">
             {cat.tags.map(tag => (
-              <span class="tech-tag font-mono text-xs px-3 py-1.5 rounded cursor-default transition-all">
+              <span
+                class="tech-tag font-mono text-xs px-3 py-1.5 rounded cursor-default transition-all hover:opacity-80"
+                style="background: var(--skills-tag-bg); border: 1px solid var(--skills-tag-border); color: var(--skills-tag-text);">
                 {tag}
               </span>
             ))}
@@ -139,7 +142,7 @@ const techCategories = [
     </div>
   </div>
 
-  {/* ── DRAWER FORMATION ── */}
+  {/* ── DRAWER ── */}
   <div id="formation-drawer" class="fixed inset-0 z-50 pointer-events-none">
     <div class="drawer-backdrop absolute inset-0 bg-black/0 transition-all duration-300"></div>
     <div class="drawer-panel absolute top-0 right-0 h-full w-full max-w-lg bg-[#0f1729] border-l border-white/10 translate-x-full transition-transform duration-300 ease-out overflow-y-auto pointer-events-auto">
@@ -154,3 +157,27 @@ const techCategories = [
     window.__formations = formations;
   </script>
 </section>
+
+<style is:global>
+  :root {
+    --skills-card-bg: #f1f5f9;
+    --skills-card-border: #e2e8f0;
+    --skills-tag-bg: #f1f5f9;
+    --skills-tag-border: #e2e8f0;
+    --skills-tag-text: #475569;
+    --skills-text-muted: #64748b;
+    --skills-text-faint: #94a3b8;
+    --skills-accent: #0f766e;
+  }
+
+  :root[data-theme="dark"] {
+    --skills-card-bg: rgba(255, 255, 255, 0.05);
+    --skills-card-border: rgba(255, 255, 255, 0.1);
+    --skills-tag-bg: rgba(255, 255, 255, 0.05);
+    --skills-tag-border: rgba(255, 255, 255, 0.1);
+    --skills-tag-text: rgba(255, 255, 255, 0.6);
+    --skills-text-muted: rgba(255, 255, 255, 0.5);
+    --skills-text-faint: rgba(255, 255, 255, 0.3);
+    --skills-accent: #2dd4bf;
+  }
+</style>

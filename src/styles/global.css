@@ -154,64 +154,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   }
 }
 
-/* ==========================================================================
-   Formation cards & Tech tags — theme-aware
-   ========================================================================== */
-
-/* Light mode (default) */
-.formation-card {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-}
-.formation-card:hover {
-  border-color: rgba(45, 143, 143, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-.formation-year { color: #2d8f8f; }
-.formation-org { color: #64748b; }
-.formation-subtitle { color: #94a3b8; }
-.formation-cta { color: rgba(45, 143, 143, 0.5); }
-.formation-card:hover .formation-cta { color: #2d8f8f; }
-
-.tech-cat-label { color: #94a3b8; }
-.tech-tag {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #475569;
-}
-.tech-tag:hover {
-  border-color: rgba(45, 143, 143, 0.4);
-  background: rgba(45, 143, 143, 0.1);
-  color: #1a7a7a;
-}
-
-/* Dark mode overrides */
-[data-theme="dark"] .formation-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-[data-theme="dark"] .formation-card:hover {
-  border-color: rgba(45, 143, 143, 0.3);
-  box-shadow: none;
-}
-[data-theme="dark"] .formation-year { color: #3ab5b5; }
-[data-theme="dark"] .formation-org { color: rgba(255, 255, 255, 0.5); }
-[data-theme="dark"] .formation-subtitle { color: rgba(255, 255, 255, 0.3); }
-[data-theme="dark"] .formation-cta { color: rgba(58, 181, 181, 0.4); }
-[data-theme="dark"] .formation-card:hover .formation-cta { color: #3ab5b5; }
-
-[data-theme="dark"] .tech-cat-label { color: rgba(255, 255, 255, 0.4); }
-[data-theme="dark"] .tech-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
-}
-[data-theme="dark"] .tech-tag:hover {
-  border-color: rgba(45, 143, 143, 0.3);
-  background: rgba(45, 143, 143, 0.1);
-  color: #3ab5b5;
-}
-
 /* Sticky stacking cards depth */
 .project-stack-card {
   transition: box-shadow 0.3s ease;
