@@ -92,34 +92,36 @@ const techCategories = [
       <span class="font-mono text-teal-500 mr-3">&gt;</span>Formation & Compétences
     </h2>
 
-    <!-- Bento grid -->
-    <div class="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+    <!-- Bento grid — 4 colonnes avec subgrid sur les 3 premières -->
+    <div class="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
+         style="grid-template-rows: repeat(5, auto);">
 
       {formations.map(f => (
         <button
-          class="bento-item formation-trigger p-6 rounded-xl text-left cursor-pointer group flex flex-col"
-          style="background: var(--sk-card-bg); border: 1px solid var(--sk-card-border);"
+          class="bento-item formation-trigger p-6 rounded-xl text-left cursor-pointer group"
+          style={`background: var(--sk-card-bg); border: 1px solid var(--sk-card-border); display: grid; grid-template-rows: subgrid; grid-row: span 5;`}
           data-formation={f.id}>
-          {/* Zone 1 — Icône + année */}
-          <div class="flex items-center justify-between mb-3">
+          {/* Ligne 1 — Icône + année */}
+          <div class="flex items-center justify-between pb-3">
             <i class={`fas fa-${f.icon}`} style="color: #d4a953; font-size: 1.25rem;"></i>
             <span class="font-mono" style={`font-size: 0.75rem; color: var(--sk-accent);`}>{f.year}</span>
           </div>
-          {/* Zone 2 — Intitulé : hauteur fixe pour aligner même si wrap */}
-          <h3 class="font-display font-semibold min-h-[3rem] flex items-start" style="font-size: 1rem; margin-bottom: 0.25rem;">{f.title}</h3>
-          {/* Zone 3 — Entité */}
+          {/* Ligne 2 — Intitulé */}
+          <h3 class="font-display font-semibold" style="font-size: 1rem;">{f.title}</h3>
+          {/* Ligne 3 — Entité */}
           <p style={`font-size: 0.875rem; color: var(--sk-muted);`}>{f.org}</p>
-          {/* Zone 4 — Subtitle : hauteur réservée même si vide */}
-          <p class="min-h-[2.5rem]" style={`font-size: 0.75rem; margin-top: 0.25rem; color: var(--sk-faint);`}>{f.subtitle || '\u00A0'}</p>
-          {/* Zone 5 — CTA : poussé en bas par mt-auto */}
-          <span class="inline-flex items-center gap-1 font-mono group-hover:opacity-100 transition-opacity mt-auto pt-2" style={`font-size: 0.75rem; opacity: 0.5; color: var(--sk-accent);`}>
+          {/* Ligne 4 — Subtitle (vide si absent) */}
+          <p style={`font-size: 0.75rem; color: var(--sk-faint);`}>{f.subtitle || '\u00A0'}</p>
+          {/* Ligne 5 — CTA */}
+          <span class="inline-flex items-center gap-1 font-mono group-hover:opacity-100 transition-opacity self-end pt-2" style={`font-size: 0.75rem; opacity: 0.5; color: var(--sk-accent);`}>
             Voir détails <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
           </span>
         </button>
       ))}
 
-      <!-- Bloc métriques -->
-      <div class="bento-item p-6 rounded-xl flex flex-col justify-center" style="background: rgba(45,143,143,0.1); border: 1px solid rgba(45,143,143,0.2);">
+      {/* Bloc métriques — 4e colonne, PAS subgrid, juste span 5 pour la hauteur */}
+      <div class="bento-item p-6 rounded-xl flex flex-col justify-center"
+           style="background: rgba(45,143,143,0.1); border: 1px solid rgba(45,143,143,0.2); grid-row: span 5;">
         <span class="font-mono font-bold" style={`font-size: 2.25rem; color: var(--sk-accent-strong);`}>18+</span>
         <span style={`font-size: 0.875rem; margin-top: 0.5rem; color: var(--sk-muted);`}>ans d'expérience en management</span>
         <span class="font-mono font-bold" style="font-size: 1.5rem; color: #d4a953; margin-top: 0.75rem;">5+</span>
