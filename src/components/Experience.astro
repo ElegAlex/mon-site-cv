@@ -42,14 +42,22 @@ const experiences = [
     blocks: [
       {
         type: "flagship",
-        title: "Projet phare : Structuration Knowledge Management",
-        icon: "database",
+        title: "Fusion régionale DRSM → CPAM : pilotage IT Île-de-France",
+        icon: "exchange-alt",
         kpis: [
-          { value: "ITIL", label: "Catalogue Services" },
-          { value: "Graphes", label: "Cartographie 360°" },
-          { value: "Fiabilité", label: "Documentation Critique" },
+          { value: "1 155", label: "postes migrés" },
+          { value: "8", label: "CPAM coordonnées" },
+          { value: "0", label: "interruption de service" },
         ],
-        impact: "Cartographies complètes (applicatives, infra, compétences) via BDD graphe, sécurisation des opérations et amélioration continue.",
+        impact: "Pilotage de la migration IT lors de l'absorption de la Direction Régionale du Service Médical par les CPAM : transfert de 1 155 postes de travail, intégration des équipes dans 8 organismes, coordination inter-sites et maintien de la continuité opérationnelle.",
+      },
+      {
+        type: "achievements",
+        title: "Knowledge Management & Gouvernance",
+        items: [
+          "Structuration KM : cartographies 360° (applicatives, infra, compétences) via graphe d'exploration",
+          "Catalogue de services ITIL et documentation critique pour sécurisation des opérations",
+        ],
       },
       {
         type: "scope",
@@ -215,7 +223,7 @@ const experiences = [
   <div class="exp-panels-track flex h-screen">
     {experiences.map((exp) => (
       <div class="exp-panel flex-none w-screen h-screen flex items-center justify-center overflow-hidden">
-        <div class="max-w-3xl w-full px-8 lg:px-12">
+        <div class="max-w-5xl w-full px-8 lg:px-12">
 
           {/* ── EN-TÊTE ── */}
           <div class="mb-5">
@@ -246,11 +254,12 @@ const experiences = [
             ))}
           </div>
 
-          {/* ── BLOCS CONTENU — scrollable si débordement ── */}
-          <div class="space-y-5 max-h-[42vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-            {exp.blocks.map(block => (
-              <div>
-                {block.type === 'flagship' && (
+          {/* ── BLOCS CONTENU ── */}
+          {exp.blocks.some(b => b.type === 'flagship') ? (
+            /* 2 colonnes si flagship présent */
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="space-y-5">
+                {exp.blocks.filter(block => block.type === 'flagship').map(block => (
                   <div class="p-5 bg-white/5 border-l-2 border-teal-400 rounded-r-lg">
                     <h4 class="font-semibold text-sm text-teal-400 mb-4 flex items-center gap-2">
                       <i class={`fas fa-${block.icon}`}></i>
@@ -266,9 +275,10 @@ const experiences = [
                     </div>
                     <p class="text-sm text-white/50 leading-relaxed">{block.impact}</p>
                   </div>
-                )}
-
-                {(block.type === 'scope' || block.type === 'achievements') && (
+                ))}
+              </div>
+              <div class="space-y-5">
+                {exp.blocks.filter(block => block.type !== 'flagship').map(block => (
                   <div>
                     <h4 class="font-mono text-xs tracking-widest uppercase text-white/30 mb-3">{block.title}</h4>
                     <ul class="space-y-2">
@@ -280,10 +290,27 @@ const experiences = [
                       ))}
                     </ul>
                   </div>
-                )}
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            /* 1 colonne si pas de flagship */
+            <div class="space-y-5">
+              {exp.blocks.map(block => (
+                <div>
+                  <h4 class="font-mono text-xs tracking-widest uppercase text-white/30 mb-3">{block.title}</h4>
+                  <ul class="space-y-2">
+                    {block.items.map(item => (
+                      <li class="flex items-start gap-3 text-white/70 text-sm leading-relaxed">
+                        <span class="font-mono text-teal-400/60 mt-1 text-xs">&rsaquo;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

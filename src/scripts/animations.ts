@@ -200,16 +200,18 @@ function initAnimations() {
         const totalWidth = expInner.scrollWidth;
         const viewportWidth = window.innerWidth;
 
-        gsap.to(expInner, {
-          x: -(totalWidth - viewportWidth),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: expContainer,
-            pin: true,
-            scrub: 1,
-            snap: 1 / (expPanels.length - 1),
-            end: () => '+=' + totalWidth,
-          },
+        // Timeline : pause initiale (premier panneau reste visible) puis scroll horizontal
+        const tl = gsap.timeline();
+        tl.to(expInner, { x: 0, duration: 0.03, ease: 'none' })  // 3% de pause
+          .to(expInner, { x: -(totalWidth - viewportWidth), duration: 0.97, ease: 'none' });
+
+        ScrollTrigger.create({
+          trigger: expContainer,
+          pin: true,
+          scrub: 1,
+          animation: tl,
+          snap: { snapTo: 1 / (expPanels.length - 1), duration: { min: 0.3, max: 0.6 }, delay: 0.1 },
+          end: () => '+=' + (totalWidth + window.innerWidth),
         });
 
         // Progress dots + counter
@@ -219,7 +221,7 @@ function initAnimations() {
           ScrollTrigger.create({
             trigger: expContainer,
             start: 'top top',
-            end: () => '+=' + totalWidth,
+            end: () => '+=' + (totalWidth + window.innerWidth),
             scrub: true,
             onUpdate: (self) => {
               const activeIndex = Math.round(self.progress * (expPanels.length - 1));
