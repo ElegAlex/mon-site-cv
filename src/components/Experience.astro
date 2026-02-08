@@ -1,172 +1,292 @@
 ---
-// src/components/Experience.astro — Phase 2 (renamed classes)
+// src/components/Experience.astro — Acte 3 : "Storytelling scrollé"
+const experiences = [
+  {
+    id: "cpam92",
+    title: "Responsable Département Informatique",
+    org: "CPAM des Hauts-de-Seine",
+    location: "Nanterre (92)",
+    dates: "Depuis Jan. 2026",
+    current: true,
+    keyFigures: [
+      { value: "45", label: "collaborateurs" },
+      { value: "1 400", label: "postes de travail" },
+      { value: "250+", label: "machines virtuelles" },
+    ],
+    blocks: [
+      {
+        type: "scope",
+        title: "Périmètre",
+        items: [
+          "Direction de 3 services : Développement, Support/Infra, Correspondants IT + Data/BI",
+          "Pilotage de 30+ applications locales et contribution aux programmes nationaux",
+          "Architecture : 40 serveurs physiques, clusters HA, monitoring Centreon",
+        ],
+      },
+    ],
+  },
+  {
+    id: "drsm-idf",
+    title: "Responsable du service informatique",
+    org: "DRSM Île-de-France → CPAM de Paris",
+    orgSub: "Cellule de Coordination Régionale IDF",
+    location: "Paris (75)",
+    dates: "Nov. 2024 — Jan. 2026",
+    current: false,
+
+    keyFigures: [
+      { value: "24", label: "collaborateurs" },
+      { value: "800k€", label: "budget" },
+      { value: "81%", label: "résolution N1" },
+    ],
+    blocks: [
+      {
+        type: "flagship",
+        title: "Projet phare : Structuration Knowledge Management",
+        icon: "database",
+        kpis: [
+          { value: "ITIL", label: "Catalogue Services" },
+          { value: "Graphes", label: "Cartographie 360°" },
+          { value: "Fiabilité", label: "Documentation Critique" },
+        ],
+        impact: "Cartographies complètes (applicatives, infra, compétences) via BDD graphe, sécurisation des opérations et amélioration continue.",
+      },
+      {
+        type: "scope",
+        title: "Périmètre",
+        items: [
+          "Management de 24 collaborateurs (support, dev, infra, managers) sur 24 sites",
+          "Portefeuille de 40+ applications (Stack Symfony) et 1 300+ postes",
+        ],
+      },
+      {
+        type: "achievements",
+        title: "Réalisations",
+        items: [
+          "Gouvernance Stratégique : définition roadmap SI, nouvelle comitologie, qualification des KPI",
+          "Performance Support : 8 500 tickets/an, amélioration de 20% des délais moyens de résolution",
+        ],
+      },
+    ],
+  },
+  {
+    id: "cpam16-it",
+    title: "Responsable Informatique & Pôle Appui au Pilotage",
+    org: "CPAM de la Charente",
+    location: "Angoulême (16)",
+    dates: "2020 — 2024",
+    current: false,
+    keyFigures: [
+      { value: "10", label: "collaborateurs IT + BI" },
+      { value: "40", label: "serveurs" },
+    ],
+    blocks: [
+      {
+        type: "flagship",
+        title: "Projet phare : DepotDoc (depotdoc.fr)",
+        icon: "star",
+        kpis: [
+          { value: "360k", label: "utilisations/an" },
+          { value: "30%", label: "adoption réseau national" },
+          { value: "-50%", label: "flux papier" },
+        ],
+        impact: "Plateforme de dématérialisation. Homogénéisation back-office, amélioration relation client, conduite du changement nationale. Stack Symfony.",
+      },
+      {
+        type: "achievements",
+        title: "Modernisation IT & Innovation",
+        items: [
+          "Stratégie open source (Axelor, GLPI) : réduction coûts licences",
+          "Innovation technologique : déploiement IA interne (RAG, BDD Graphe)",
+          "Architecture infrastructure : 40 serveurs Linux/Windows, migrations Alma Linux 9",
+        ],
+      },
+      {
+        type: "achievements",
+        title: "Business Intelligence & Pilotage",
+        items: [
+          "Outils décisionnels et gouvernance des données métiers",
+          "Management de 10 collaborateurs (IT + BI)",
+        ],
+      },
+    ],
+  },
+  {
+    id: "cpam16-agence",
+    title: "Responsable Agence Cognac",
+    org: "CPAM de la Charente",
+    location: "Cognac (16)",
+    dates: "2017 — 2020",
+    current: false,
+    keyFigures: [
+      { value: "25", label: "collaborateurs" },
+      { value: "1.3M", label: "feuilles de soins/an" },
+    ],
+    blocks: [
+      {
+        type: "achievements",
+        title: "Réalisations",
+        items: [
+          "Management de 25 collaborateurs",
+          "Pilotage Pôle Régional : mutualisation traitement feuilles de soins (1.3M/an)",
+          "Relation client : pilotage courriers et réclamations (16k/an)",
+          "Projets transformation : déploiement solution dématérialisée contacts professionnels de santé",
+        ],
+      },
+    ],
+  },
+  {
+    id: "carsat",
+    title: "Responsable Agences Eure-et-Loir",
+    org: "CARSAT Centre Val de Loire",
+    location: "Chartres & Dreux (28)",
+    dates: "2015 — 2017",
+    current: false,
+    keyFigures: [
+      { value: "20", label: "collaborateurs" },
+      { value: "+10%", label: "productivité" },
+    ],
+    blocks: [
+      {
+        type: "achievements",
+        title: "Réalisations",
+        items: [
+          "Management multi-sites 20 collaborateurs (Chartres et Dreux)",
+          "Transformation service client : abandon accueil guichet vers offre sur rendez-vous",
+          "Performance opérationnelle : amélioration +10% productivité",
+          "Conduite de projets : guide manager structure retraite (adoption 70%)",
+        ],
+      },
+    ],
+  },
+  {
+    id: "rsi",
+    title: "Manager de proximité — Pôle logistique",
+    org: "RSI Poitou-Charentes",
+    location: "Poitiers",
+    dates: "2008 — 2015",
+    current: false,
+    keyFigures: [
+      { value: "5", label: "collaborateurs" },
+    ],
+    blocks: [
+      {
+        type: "achievements",
+        title: "Réalisations",
+        items: [
+          "Management de 5 collaborateurs",
+          "Encadrement équipes avec optimisation des processus logistiques",
+          "Focus amélioration continue et performance opérationnelle",
+        ],
+      },
+    ],
+  },
+];
 ---
 
-<section id="experience" class="section experience-section">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="section-heading reveal"><i class="fas fa-briefcase"></i> Expériences Professionnelles</h2>
-        <div class="experience-timeline">
+<section id="experience" class="relative min-h-screen bg-[#1a2744] overflow-hidden">
 
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
+  <!-- Header fixe -->
+  <div class="absolute top-8 left-6 z-10">
+    <h2 class="font-display text-3xl font-bold text-white">
+      <span class="font-mono text-teal-400 mr-3">&gt;</span>Expériences
+    </h2>
+  </div>
+
+  <!-- Hint navigation desktop -->
+  <div class="absolute top-8 right-6 z-10 hidden lg:flex items-center gap-2 text-white/40">
+    <span class="font-mono text-xs tracking-wider">Scrollez pour naviguer</span>
+    <i class="fas fa-arrows-alt-h text-teal-400/60"></i>
+  </div>
+
+  <!-- Progress dots -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex items-center gap-3">
+    {experiences.map((exp, i) => (
+      <button class={`exp-dot w-2 h-2 rounded-full transition-all ${i === 0 ? 'bg-teal-400 w-8' : 'bg-white/30'}`} aria-label={exp.org} title={exp.org}></button>
+    ))}
+  </div>
+
+  <!-- Compteur -->
+  <div class="absolute bottom-8 right-6 z-10 font-mono text-xs text-white/30">
+    <span class="exp-counter">1</span>/<span>{experiences.length}</span>
+  </div>
+
+  <!-- Track horizontal -->
+  <div class="exp-panels-track flex h-screen">
+    {experiences.map((exp) => (
+      <div class="exp-panel flex-none w-screen h-screen flex items-center justify-center overflow-hidden">
+        <div class="max-w-3xl w-full px-8 lg:px-12">
+
+          {/* ── EN-TÊTE ── */}
+          <div class="mb-5">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="font-mono text-sm text-teal-400">{exp.dates}</span>
+              {exp.current && (
+                <span class="px-2 py-0.5 bg-teal-500/20 border border-teal-500/30 rounded text-xs font-mono text-teal-400">En poste</span>
+              )}
+            </div>
+            <h3 class="font-display text-2xl lg:text-3xl font-bold text-white mb-2 leading-tight">{exp.title}</h3>
+            <p class="text-white/50 text-lg">{exp.org}</p>
+            {exp.orgSub && <p class="text-white/40 text-sm">{exp.orgSub}</p>}
+            <p class="text-white/30 text-sm mt-1">{exp.location}</p>
+          </div>
+
+          {/* ── NOTE CONTEXTUELLE ── */}
+          {exp.note && (
+            <p class="text-xs italic text-rose-400/60 mb-5 leading-relaxed max-w-xl">{exp.note}</p>
+          )}
+
+          {/* ── CHIFFRES CLÉS — ligne horizontale ── */}
+          <div class="flex flex-wrap gap-6 mb-6 pb-5 border-b border-white/5">
+            {exp.keyFigures.map(kf => (
+              <div class="flex items-baseline gap-2">
+                <span class="font-mono text-2xl font-bold text-teal-400">{kf.value}</span>
+                <span class="text-xs text-white/40 uppercase tracking-wider">{kf.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* ── BLOCS CONTENU — scrollable si débordement ── */}
+          <div class="space-y-5 max-h-[42vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            {exp.blocks.map(block => (
+              <div>
+                {block.type === 'flagship' && (
+                  <div class="p-5 bg-white/5 border-l-2 border-teal-400 rounded-r-lg">
+                    <h4 class="font-semibold text-sm text-teal-400 mb-4 flex items-center gap-2">
+                      <i class={`fas fa-${block.icon}`}></i>
+                      {block.title}
+                    </h4>
+                    <div class="flex flex-wrap gap-6 mb-3">
+                      {block.kpis.map(kpi => (
                         <div>
-                            <h3 class="exp-title">Responsable Département Informatique</h3>
-                            <h4 class="exp-company">CPAM des Hauts-de-Seine (92)</h4>
+                          <span class="block font-mono text-xl font-bold text-white">{kpi.value}</span>
+                          <span class="block text-xs text-white/40">{kpi.label}</span>
                         </div>
-                        <div class="exp-date">Depuis Jan. 2026</div>
+                      ))}
                     </div>
-                    <div class="exp-body">
-                        <div class="flagship-project project-cpam92 mb-6 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-3 flex items-center"><i class="fas fa-building mr-2"></i>Direction Département SI</h4>
-                            <div class="achievement-grid mb-3">
-                                <div class="achievement-metric"><div class="text-2xl font-bold">45</div><div class="text-sm">collaborateurs</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">1 400</div><div class="text-sm">postes gérés</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">250+</div><div class="text-sm">VM / 40 serveurs</div></div>
-                            </div>
-                            <p class="text-sm"><strong>Mission :</strong> Piloter le système d'information et structurer la gouvernance du département.</p>
-                        </div>
-                        <p class="exp-category-title">Périmètre :</p>
-                        <ul>
-                            <li>Management de 3 services : Études & Développement, Support & Infrastructure, Correspondants Informatiques + fonction Data/BI</li>
-                            <li>Infrastructure : 40 serveurs physiques, 250+ VM</li>
-                            <li>Portefeuille de 30+ applicatifs locaux</li>
-                            <li>Contribution aux programmes nationaux de l'Assurance Maladie</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    <p class="text-sm text-white/50 leading-relaxed">{block.impact}</p>
+                  </div>
+                )}
 
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div>
-                            <h3 class="exp-title">Responsable Service Informatique</h3>
-                            <h4 class="exp-company">DRSM Île-de-France (75)</h4>
-                        </div>
-                        <div class="exp-date">Nov. 2024 - Déc. 2025</div>
-                    </div>
-                    <div class="exp-body">
-                        <div class="flagship-project project-km mb-6 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-3 flex items-center"><i class="fas fa-database mr-2"></i>Projet Phare : Structuration Knowledge Management</h4>
-                            <div class="achievement-grid mb-3">
-                                <div class="achievement-metric"><div class="text-2xl font-bold">ITIL</div><div class="text-sm">Catalogue Services</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">Graphes</div><div class="text-sm">Cartographie 360°</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">81%</div><div class="text-sm">Résolution 1er contact</div></div>
-                            </div>
-                            <p class="text-sm"><strong>Impact :</strong> Cartographies complètes (applicatives, infra, compétences) via BDD graphe, sécurisation des opérations et amélioration continue.</p>
-                        </div>
-                        <p class="exp-category-title">Périmètre (Budget 800k€) :</p>
-                        <ul>
-                            <li>Management de 23 collaborateurs (support, dev, infra, managers) sur 24 sites</li>
-                            <li>Portefeuille de 40+ applications (Stack Symfony) et 1300+ postes</li>
-                        </ul>
-                        <p class="exp-category-title">Principales réalisations :</p>
-                        <ul class="exp-realisations-list">
-                            <li><span class="exp-realisation-category">Gouvernance Stratégique :</span>
-                                <ul><li>Définition de la roadmap SI, nouvelle comitologie et qualification des KPI</li></ul>
-                            </li>
-                            <li><span class="exp-realisation-category">Performance Support (8500 tickets/an) :</span>
-                                <ul>
-                                    <li><strong>81%</strong> de résolution au premier contact</li>
-                                    <li>Amélioration de <strong>20%</strong> des délais moyens de résolution</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div>
-                            <h3 class="exp-title">Responsable Informatique & Pôle Appui au Pilotage</h3>
-                            <h4 class="exp-company">CPAM de la Charente (16)</h4>
-                        </div>
-                        <div class="exp-date">2020 - 2024</div>
-                    </div>
-                    <div class="exp-body">
-                        <div class="flagship-project project-depotdoc mb-6 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-3 flex items-center"><i class="fas fa-star mr-2"></i>Projet Phare : Transformation Digitale (www.depotdoc.fr)</h4>
-                            <div class="achievement-grid mb-3">
-                                <div class="achievement-metric"><div class="text-2xl font-bold">360k</div><div class="text-sm">utilisations/an</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">30%</div><div class="text-sm">adoption réseau national</div></div>
-                                <div class="achievement-metric"><div class="text-2xl font-bold">-50%</div><div class="text-sm">flux papier</div></div>
-                            </div>
-                            <p class="text-sm"><strong>Impact business :</strong> Homogénéisation back-office, amélioration relation client, conduite du changement d'envergure nationale. (Stack Symfony).</p>
-                        </div>
-                        <p class="exp-category-title">Modernisation IT & Innovation :</p>
-                        <ul>
-                            <li>Stratégie open source (Axelor, GLPI) : Réduction coûts licences</li>
-                            <li>Innovation technologique : Déploiement IA interne (RAG, BDD Graphe)</li>
-                            <li>Architecture infrastructure : 40 serveurs Linux/Windows, migrations Alma Linux 9</li>
-                        </ul>
-                        <p class="exp-category-title">Business Intelligence & Pilotage :</p>
-                        <ul>
-                            <li>Outils décisionnels et gouvernance des données métiers</li>
-                            <li>Management de 10 collaborateurs (IT + BI)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div><h3 class="exp-title">Responsable Agence Cognac</h3><h4 class="exp-company">CPAM de la Charente (16)</h4></div>
-                        <div class="exp-date">2017 - 2020</div>
-                    </div>
-                    <div class="exp-body">
-                        <ul>
-                            <li>Management de 25 collaborateurs</li>
-                            <li>Pilotage Pôle Régional : Mutualisation traitement feuilles de soins (1.3M/an)</li>
-                            <li>Relation client : Pilotage courriers/réclamations (16k/an)</li>
-                            <li>Projets transformation : Déploiement solution dématérialisée contacts PS</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div><h3 class="exp-title">Responsable Agences Eure-et-Loir (28)</h3><h4 class="exp-company">CARSAT Centre Val de Loire</h4></div>
-                        <div class="exp-date">2015 - 2017</div>
-                    </div>
-                    <div class="exp-body">
-                        <ul>
-                            <li>Management multi-sites 20 collaborateurs (Chartres et Dreux)</li>
-                            <li>Transformation service client : Abandon accueil guichet vers offre RDV</li>
-                            <li>Performance opérationnelle : Amélioration +10% productivité</li>
-                            <li>Conduite de projets : Guide manager structure retraite (adoption 70%)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item reveal">
-                <div class="exp-marker"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div><h3 class="exp-title">Manager de proximité - Pôle logistique</h3><h4 class="exp-company">RSI Poitou-Charentes</h4></div>
-                        <div class="exp-date">2008 - 2015</div>
-                    </div>
-                    <div class="exp-body">
-                        <ul>
-                            <li>Management 5 collaborateurs</li>
-                            <li>Encadrement équipes avec optimisation des processus logistiques</li>
-                            <li>Focus amélioration continue et performance</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                {(block.type === 'scope' || block.type === 'achievements') && (
+                  <div>
+                    <h4 class="font-mono text-xs tracking-widest uppercase text-white/30 mb-3">{block.title}</h4>
+                    <ul class="space-y-2">
+                      {block.items.map(item => (
+                        <li class="flex items-start gap-3 text-white/70 text-sm leading-relaxed">
+                          <span class="font-mono text-teal-400/60 mt-1 text-xs">&rsaquo;</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
         </div>
-    </div>
+      </div>
+    ))}
+  </div>
 </section>

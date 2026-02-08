@@ -1,133 +1,156 @@
 ---
-// src/components/Skills.astro — Phase 2 (expandable cards)
+// src/components/Skills.astro — Acte 5 : "Bento grid + Drawer"
+const formations = [
+  {
+    id: "msic",
+    title: "Executive Master 2 MSIC",
+    org: "Paris 1 Panthéon-Sorbonne",
+    year: "2024-2025",
+    icon: "graduation-cap",
+    subtitle: "Management des Systèmes d'Information et de Connaissances",
+    contents: [
+      "Stratégie d'organisation et conduite du changement",
+      "Ingénierie des exigences",
+      "Modélisation de l'entreprise et de son évolution",
+      "Qualité, Arbitrage et Décision",
+      "Gouvernance des SI et Direction de Projets",
+      "Architecture d'entreprise et urbanisation des SIC",
+      "Management des connaissances et Big Data",
+      "Système d'information décisionnel et Data Mining",
+    ],
+    memoire: {
+      title: "Les facteurs d'institutionnalisation des communs numériques dans l'administration",
+      url: "https://communs-numeriques.fr/articles/memoire-institutionnalisation-communs-numeriques",
+    },
+  },
+  {
+    id: "droit",
+    title: "Master 2 Droit & Sciences du Travail Européen",
+    org: "Toulouse 1 Capitole",
+    year: "2013-2014",
+    icon: "balance-scale",
+    subtitle: "",
+    contents: [
+      "Droit des relations individuelles de travail",
+      "Droit du travail et structure sociétaire",
+      "Droit social des entreprises en difficulté",
+      "Droit pénal du travail",
+      "Droit de l'emploi public",
+      "Droit de la négociation collective",
+      "Droit comparé du travail",
+      "Droit social européen et international",
+    ],
+    memoire: {
+      title: "Le poids des partenaires sociaux dans la création du droit social en Europe",
+    },
+  },
+  {
+    id: "itil",
+    title: "ITIL® 4 Foundation",
+    org: "PeopleCert",
+    year: "Certifié",
+    icon: "certificate",
+    subtitle: "",
+    contents: [
+      "Le Système de Valeur des Services (SVS)",
+      "Les 7 Principes Directeurs d'ITIL",
+      "Amélioration Continue (Continual Improvement)",
+      "Habilitation du Changement (Change Enablement)",
+      "Gestion des Incidents (Incident Management)",
+      "Gestion des Problèmes (Problem Management)",
+      "Centre de Services (Service Desk)",
+      "Gestion des Niveaux de Service (Service Level Management)",
+      "Gestion des Demandes de Service (Service Request Management)",
+    ],
+  },
+];
+
+const techCategories = [
+  {
+    label: "Gestion",
+    tags: ["ITIL", "Agile/Scrum", "RGPD", "Conduite du changement", "Gouvernance SI"],
+  },
+  {
+    label: "Infrastructure",
+    tags: ["VMware", "Docker", "Linux", "Windows Server", "Active Directory", "Centreon", "GLPI"],
+  },
+  {
+    label: "Data & IA",
+    tags: ["PostgreSQL", "Redis", "Neo4j", "RAG", "LangChain", "Elasticsearch"],
+  },
+  {
+    label: "Développement",
+    tags: ["NestJS", "Next.js", "React", "Symfony", "PHP", "Python", "TypeScript", "Node.js"],
+  },
+];
 ---
 
-<section id="competences" class="section skills-section">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="section-heading reveal"><i class="fas fa-cogs"></i> Compétences & Expertises</h2>
-        <p class="section-intro reveal">Synthèse de mes expertises stratégiques, techniques et sectorielles.</p>
-        <div class="grid md:grid-cols-2 gap-4 stagger-reveal">
+<section id="competences" class="py-24 min-h-screen">
+  <div class="max-w-5xl mx-auto px-6">
 
-            <!-- Expertise Sectorielle -->
-            <div class="expandable-card reveal" data-expanded="false">
-                <button
-                    class="card-toggle"
-                    aria-expanded="false"
-                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
-                >
-                    <div class="card-toggle-left">
-                        <i class="fas fa-heartbeat"></i>
-                        <h3>Expertise Santé/Social</h3>
-                    </div>
-                    <i class="fas fa-chevron-down card-chevron"></i>
-                </button>
-                <div class="card-content">
-                    <div class="card-content-inner">
-                        <ul>
-                            <li><strong>17+ ans d'expérience</strong> Assurance Maladie</li>
-                            <li>Environnement ultra-réglementé (RGPD, HDS)</li>
-                            <li>Volume industriel (millions d'assurés)</li>
-                            <li>Transformation digitale santé</li>
-                            <li>Relations partenariales (Professionnels de Santé)</li>
-                            <li>Compliance et sécurité des données</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <h2 class="section-heading font-display text-3xl md:text-4xl font-bold mb-16">
+      <span class="font-mono text-teal-500 mr-3">&gt;</span>Formation & Compétences
+    </h2>
 
-            <!-- Direction & Gouvernance -->
-            <div class="expandable-card reveal" data-expanded="false">
-                <button
-                    class="card-toggle"
-                    aria-expanded="false"
-                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
-                >
-                    <div class="card-toggle-left">
-                        <i class="fas fa-chess-king"></i>
-                        <h3>Direction & Gouvernance</h3>
-                    </div>
-                    <i class="fas fa-chevron-down card-chevron"></i>
-                </button>
-                <div class="card-content">
-                    <div class="card-content-inner">
-                        <ul>
-                            <li>Leadership IT & Management transverse</li>
-                            <li>Pilotage Budgets & ROI</li>
-                            <li>Gouvernance ITIL</li>
-                            <li>Conduite du changement</li>
-                            <li>Pilotage Projets</li>
-                            <li>Innovation Technologique</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Bento grid — 2 cols md, 4 cols lg -->
+    <div class="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
 
-            <!-- Architecture & Opérations -->
-            <div class="expandable-card card-dark reveal" data-expanded="false">
-                <button
-                    class="card-toggle"
-                    aria-expanded="false"
-                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
-                >
-                    <div class="card-toggle-left">
-                        <i class="fas fa-server"></i>
-                        <h3>Architecture & Opérations</h3>
-                    </div>
-                    <i class="fas fa-chevron-down card-chevron"></i>
-                </button>
-                <div class="card-content">
-                    <div class="card-content-inner">
-                        <ul>
-                            <li>Infrastructure Multi-sites</li>
-                            <li>Support & Services (ITSM, KPI)</li>
-                            <li>Business Intelligence (Data Governance)</li>
-                            <li>Développement (DevOps CI/CD, Symfony)</li>
-                        </ul>
-                        <h5 style="font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">Focus Techno</h5>
-                        <div class="skill-tags-container">
-                            <span class="skill-tag skill-tag-highlight">Open Source</span>
-                            <span class="skill-tag skill-tag-highlight">IA (RAG)</span>
-                            <span class="skill-tag">GraphDB</span>
-                            <span class="skill-tag">ITSM (GLPI)</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Windows Server</span>
-                            <span class="skill-tag">VMWare</span>
-                            <span class="skill-tag">Supervision (Centreon)</span>
-                            <span class="skill-tag">VEEAM</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Formation cards -->
+      {formations.map(f => (
+        <button class="bento-item formation-trigger formation-card p-6 rounded-xl text-left cursor-pointer group transition-all"
+          data-formation={f.id}>
+          <div class="flex items-center justify-between mb-3">
+            <i class={`fas fa-${f.icon} text-amber-400 text-xl`}></i>
+            <span class="formation-year font-mono text-xs">{f.year}</span>
+          </div>
+          <h3 class="font-display font-semibold text-base mb-1">{f.title}</h3>
+          <p class="formation-org text-sm">{f.org}</p>
+          {f.subtitle && <p class="formation-subtitle text-xs mt-1">{f.subtitle}</p>}
+          <span class="formation-cta inline-flex items-center gap-1 text-xs font-mono mt-3 transition-colors">
+            Voir détails <i class="fas fa-chevron-right text-[10px]"></i>
+          </span>
+        </button>
+      ))}
 
-            <!-- Savoir-être & Langues -->
-            <div class="expandable-card reveal" data-expanded="false">
-                <button
-                    class="card-toggle"
-                    aria-expanded="false"
-                    onclick="this.parentElement.dataset.expanded = this.parentElement.dataset.expanded === 'true' ? 'false' : 'true'; this.setAttribute('aria-expanded', this.parentElement.dataset.expanded);"
-                >
-                    <div class="card-toggle-left">
-                        <i class="fas fa-brain"></i>
-                        <h3>Savoir-être & Langues</h3>
-                    </div>
-                    <i class="fas fa-chevron-down card-chevron"></i>
-                </button>
-                <div class="card-content">
-                    <div class="card-content-inner">
-                        <ul>
-                            <li>Leadership Fédérateur</li>
-                            <li>Vision Stratégique</li>
-                            <li>Analyse & Synthèse</li>
-                            <li>Communication</li>
-                            <li>Pragmatisme</li>
-                        </ul>
-                        <h5 style="font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">Langues</h5>
-                        <p style="font-size: 0.85rem; margin-bottom: 0.25rem;">Français (Natif)</p>
-                        <p style="font-size: 0.85rem;">Anglais (Professionnel)</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      <!-- Bloc métriques -->
+      <div class="bento-item p-6 bg-teal-500/10 border border-teal-500/20 rounded-xl flex flex-col justify-center">
+        <span class="font-mono text-4xl font-bold text-teal-400 block">17+</span>
+        <span class="text-sm opacity-70 mt-2">ans d'expérience en management</span>
+        <span class="font-mono text-2xl font-bold text-amber-400 block mt-3">5+</span>
+        <span class="text-sm opacity-70 mt-1">ans de direction IT (depuis 2020)</span>
+        <span class="text-xs opacity-40 mt-2">CPAM · CARSAT · RSI · DRSM</span>
+      </div>
     </div>
+
+    <!-- Tech tags par catégorie -->
+    <div class="tech-tags-container space-y-8">
+      {techCategories.map(cat => (
+        <div>
+          <h3 class="tech-cat-label font-mono text-xs tracking-widest uppercase mb-3">{cat.label}</h3>
+          <div class="flex flex-wrap gap-2">
+            {cat.tags.map(tag => (
+              <span class="tech-tag font-mono text-xs px-3 py-1.5 rounded cursor-default transition-all">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* ── DRAWER FORMATION ── */}
+  <div id="formation-drawer" class="fixed inset-0 z-50 pointer-events-none">
+    <div class="drawer-backdrop absolute inset-0 bg-black/0 transition-all duration-300"></div>
+    <div class="drawer-panel absolute top-0 right-0 h-full w-full max-w-lg bg-[#0f1729] border-l border-white/10 translate-x-full transition-transform duration-300 ease-out overflow-y-auto pointer-events-auto">
+      <button class="drawer-close absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-colors">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="drawer-content p-8 pt-16"></div>
+    </div>
+  </div>
+
+  <script define:vars={{ formations }}>
+    window.__formations = formations;
+  </script>
 </section>

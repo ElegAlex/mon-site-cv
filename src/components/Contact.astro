@@ -1,60 +1,73 @@
 ---
-// src/components/Contact.astro — Phase 2
+// src/components/Contact.astro — Acte 6 : "Le call"
 ---
 
-<section id="contact" class="section contact-section">
-    <div class="contact-background-shapes">
-        <div class="contact-shape shape-a"></div>
-        <div class="contact-shape shape-b"></div>
+<section id="contact" class="min-h-screen flex items-center justify-center bg-[#0f1729] relative overflow-hidden">
+
+  <!-- Grille decorative -->
+  <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(45,143,143,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(45,143,143,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center py-24">
+
+    <div class="mb-8">
+      <img src="/images/photo_alex.png" alt="Alexandre Berge"
+        class="w-28 h-28 rounded-full mx-auto border-2 border-teal-500/30 object-cover"
+        loading="lazy" />
     </div>
-    <div class="max-w-6xl mx-auto relative z-10">
-        <h2 class="section-heading-dark reveal"><i class="fas fa-paper-plane"></i> Contact</h2>
-        <div class="grid md:grid-cols-5 gap-12 items-start">
-            <div class="md:col-span-3 reveal">
-                <h3 class="contact-subheading">Envoyer un message</h3>
-                <form aria-label="Formulaire de contact" id="contactForm" action="https://formspree.io/f/mgvkdnza" method="POST" class="space-y-5">
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div>
-                            <label for="name" class="contact-label">Nom</label>
-                            <input type="text" id="name" name="name" class="contact-input" required>
-                        </div>
-                        <div>
-                            <label for="email" class="contact-label">Email</label>
-                            <input type="email" id="email" name="email" class="contact-input" required>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="subject" class="contact-label">Sujet</label>
-                        <input type="text" id="subject" name="subject" class="contact-input" required>
-                    </div>
-                    <div>
-                        <label for="message" class="contact-label">Message</label>
-                        <textarea id="message" name="message" rows="4" class="contact-input" required></textarea>
-                    </div>
-                    <button type="submit" class="contact-submit-button">Envoyer <i class="fas fa-paper-plane ml-2"></i></button>
-                </form>
-            </div>
-            <div class="md:col-span-2 mt-8 md:mt-0 reveal">
-                <h3 class="contact-subheading">Coordonnées</h3>
-                <div class="contact-details-list">
-                    <div class="contact-detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div><h4>Localisation</h4><p>Nanterre (92), Île-de-France</p></div>
-                    </div>
-                    <div class="contact-detail-item">
-                        <i class="fas fa-phone"></i>
-                        <div><h4>Téléphone</h4><p>06 65 57 64 78</p></div>
-                    </div>
-                    <div class="contact-detail-item">
-                        <i class="fas fa-envelope"></i>
-                        <div><h4>Email</h4><a href="mailto:contact@alexandre-berge.fr">contact@alexandre-berge.fr</a></div>
-                    </div>
-                    <div class="contact-detail-item">
-                        <i class="fab fa-linkedin-in"></i>
-                        <div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/bergealexandre" target="_blank" rel="noopener noreferrer">bergealexandre</a></div>
-                    </div>
-                </div>
-            </div>
+
+    <h2 class="contact-title font-display text-4xl md:text-6xl font-bold text-white mb-6">
+      Parlons-en<span class="text-teal-400">.</span>
+    </h2>
+
+    <p class="text-lg text-white/50 mb-12 max-w-xl mx-auto">
+      Directeur IT passionné par la transformation digitale du service public. Ouvert aux échanges sur l'innovation, les communs numériques, et les défis IT du secteur santé.
+    </p>
+
+    <!-- Liens de contact -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <a href="mailto:contact@alexandre-berge.fr" class="inline-flex items-center gap-3 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors">
+        <i class="fas fa-envelope"></i> Me contacter
+      </a>
+      <a href="https://www.linkedin.com/in/bergealexandre" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-6 py-3 border border-white/20 hover:border-teal-400 text-white/70 hover:text-teal-400 rounded-lg transition-colors">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+
+    <!-- Formulaire Formspree -->
+    <div class="max-w-md mx-auto mb-12">
+      <form action="https://formspree.io/f/mgvkdnza" method="POST" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="name" placeholder="Nom" required
+            class="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 text-sm focus:border-teal-500 focus:outline-none transition-colors" />
+          <input type="email" name="email" placeholder="Email" required
+            class="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 text-sm focus:border-teal-500 focus:outline-none transition-colors" />
         </div>
+        <input type="text" name="subject" placeholder="Sujet" required
+          class="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 text-sm focus:border-teal-500 focus:outline-none transition-colors" />
+        <textarea name="message" rows="3" placeholder="Message" required
+          class="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 text-sm focus:border-teal-500 focus:outline-none transition-colors resize-none"></textarea>
+        <button type="submit" class="w-full px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2">
+          Envoyer <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
+
+    <!-- Liens secondaires -->
+    <div class="flex flex-wrap justify-center gap-6 text-sm">
+      <a href="https://github.com/ElegAlex" target="_blank" rel="noopener" class="text-white/30 hover:text-teal-400 transition-colors flex items-center gap-2">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://www.elegartech.fr" target="_blank" rel="noopener" class="text-white/30 hover:text-teal-400 transition-colors flex items-center gap-2">
+        <i class="fas fa-blog"></i> elegartech.fr
+      </a>
+      <a href="https://communs-numeriques.fr" target="_blank" rel="noopener" class="text-white/30 hover:text-teal-400 transition-colors flex items-center gap-2">
+        <i class="fas fa-book"></i> communs-numeriques.fr
+      </a>
+    </div>
+
+    <!-- Footer minimal -->
+    <div class="mt-24 font-mono text-xs text-white/20">
+      <p>&copy; {new Date().getFullYear()} Alexandre Berge · Fait avec Astro + GSAP</p>
+    </div>
+  </div>
 </section>

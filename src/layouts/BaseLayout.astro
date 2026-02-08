@@ -1,122 +1,135 @@
 ---
-import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import 'lenis/dist/lenis.css';
+import '../styles/global.css';
 ---
 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre Berge - Responsable Département Informatique | CPAM des Hauts-de-Seine</title>
-    <meta name="description" content="Alexandre Berge, Responsable Département Informatique à la CPAM des Hauts-de-Seine. 17+ ans management, 45 collaborateurs, 1400 postes, expert transformation digitale secteur santé/protection sociale.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexandre Berge — Responsable Département Informatique | CPAM des Hauts-de-Seine</title>
+  <meta name="description" content="Alexandre Berge, Responsable Département Informatique à la CPAM des Hauts-de-Seine. 17+ ans management, 45 collaborateurs, 1400 postes, expert transformation digitale secteur santé/protection sociale." />
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Alexandre Berge - Responsable Département Informatique | CPAM 92">
-    <meta property="og:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale secteur santé/protection sociale.">
-    <meta property="og:image" content="https://alexandre-berge.fr/images/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://alexandre-berge.fr">
-    <meta property="og:locale" content="fr_FR">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Alexandre Berge - Responsable Département Informatique">
-    <meta name="twitter:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale.">
-    <meta name="twitter:image" content="https://alexandre-berge.fr/images/og-image.png">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alexandre Berge - Responsable Département Informatique | CPAM 92" />
+  <meta property="og:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale secteur santé/protection sociale." />
+  <meta property="og:image" content="https://alexandre-berge.fr/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://alexandre-berge.fr" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alexandre Berge - Responsable Département Informatique" />
+  <meta name="twitter:description" content="17+ ans management IT, 45 collaborateurs, 1400 postes. Expert transformation digitale." />
+  <meta name="twitter:image" content="https://alexandre-berge.fr/images/og-image.png" />
 
-    <link rel="canonical" href="https://alexandre-berge.fr">
+  <link rel="canonical" href="https://alexandre-berge.fr" />
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Alexandre Berge",
-        "jobTitle": "Responsable Département Informatique",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "CPAM des Hauts-de-Seine"
-        },
-        "url": "https://alexandre-berge.fr",
-        "sameAs": [
-            "https://www.linkedin.com/in/bergealexandre",
-            "https://www.elegartech.fr",
-            "https://communs-numeriques.fr",
-            "https://github.com/ElegAlex"
-        ],
-        "knowsAbout": [
-            "Digital Transformation",
-            "IT Management",
-            "ITIL",
-            "Digital Commons",
-            "Open Source",
-            "Health Information Systems"
-        ],
-        "alumniOf": [
-            {
-                "@type": "CollegeOrUniversity",
-                "name": "Université Paris 1 Panthéon-Sorbonne"
-            }
-        ]
-    }
-    </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexandre Berge",
+    "jobTitle": "Responsable Département Informatique",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CPAM des Hauts-de-Seine"
+    },
+    "url": "https://alexandre-berge.fr",
+    "sameAs": [
+      "https://www.linkedin.com/in/bergealexandre",
+      "https://www.elegartech.fr",
+      "https://communs-numeriques.fr",
+      "https://github.com/ElegAlex"
+    ],
+    "knowsAbout": [
+      "Digital Transformation",
+      "IT Management",
+      "ITIL",
+      "Digital Commons",
+      "Open Source",
+      "Health Information Systems"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Université Paris 1 Panthéon-Sorbonne"
+      }
+    ]
+  }
+  </script>
 
-    <!-- Anti-flash: apply theme before render -->
-    <script is:inline>
-        const t = localStorage.getItem('theme') ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', t);
-    </script>
+  <!-- Anti-flash: apply theme before render -->
+  <script is:inline>
+    const t = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
-<body>
 
-    <!-- Sticky Navigation -->
-    <header class="site-header" id="site-header">
-        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#accueil" class="font-display font-bold text-lg text-navy">A.B</a>
-            <div class="hidden md:flex items-center gap-1">
-                <a href="#profil" class="nav-link">Profil</a>
-                <a href="#experience" class="nav-link">Expériences</a>
-                <a href="#formation" class="nav-link">Formations</a>
-                <a href="#competences" class="nav-link">Compétences</a>
-                <a href="#projets" class="nav-link">Projets</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="flex items-center gap-2">
-                <ThemeToggle />
-                <a href="/assets/cv-alexandre-berge.pdf" download class="download-btn hidden sm:inline-flex">
-                    <i class="fas fa-file-pdf"></i> CV PDF
-                </a>
-                <button class="md:hidden p-2" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
-                    <i class="fas fa-bars text-xl text-navy"></i>
-                </button>
-            </div>
-        </nav>
-        <div class="mobile-menu" id="mobile-menu">
-            <a href="#profil" class="nav-link">Profil</a>
-            <a href="#experience" class="nav-link">Expériences</a>
-            <a href="#formation" class="nav-link">Formations</a>
-            <a href="#competences" class="nav-link">Compétences</a>
-            <a href="#projets" class="nav-link">Projets</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="/assets/cv-alexandre-berge.pdf" download class="download-btn sm:hidden mt-2 justify-center">
-                <i class="fas fa-file-pdf"></i> CV PDF
-            </a>
-        </div>
-    </header>
+<body class="bg-[#0f1729] text-white transition-colors duration-500">
 
-    <main id="main-content">
-        <slot />
-    </main>
+  <!-- NAVIGATION MINIMALISTE + PROGRESS -->
+  <header class="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+    <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo monogramme -->
+      <a href="#accueil" class="font-mono text-sm tracking-widest text-white hover:text-teal-400 transition-colors">
+        A.BERGE
+      </a>
 
-    <!-- Back to top -->
-    <button id="back-to-top" class="back-to-top" title="Retour en haut" aria-label="Retour en haut">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+      <!-- Nav links desktop -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#profil" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Profil</a>
+        <a href="#experience" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Expériences</a>
+        <a href="#projets" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Projets</a>
+        <a href="#competences" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Compétences</a>
+        <a href="#publications" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Publications</a>
+        <a href="#contact" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Contact</a>
+      </div>
 
-    <script src="../scripts/navigation.ts"></script>
+      <div class="flex items-center gap-4">
+        <ThemeToggle />
+        <!-- Menu burger mobile -->
+        <button class="lg:hidden text-white" id="mobile-menu-toggle" aria-label="Menu">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0f1729]/95 backdrop-blur-xl flex items-center justify-center hidden">
+    <nav class="flex flex-col items-center gap-8">
+      <a href="#profil" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Profil</a>
+      <a href="#experience" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Expériences</a>
+      <a href="#projets" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Projets</a>
+      <a href="#competences" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Compétences</a>
+      <a href="#publications" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Publications</a>
+      <a href="#contact" class="mobile-nav-link font-display text-2xl text-white/80 hover:text-teal-400">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Progress indicator vertical (bord droit) -->
+  <div class="fixed right-4 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-1">
+    <div class="w-[2px] h-32 bg-white/10 rounded-full overflow-hidden">
+      <div class="progress-bar-fill w-full h-full bg-teal-400 rounded-full origin-top" style="transform: scaleY(0)"></div>
+    </div>
+  </div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- Scripts -->
+  <script src="../scripts/animations.ts"></script>
 </body>
 </html>

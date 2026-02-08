@@ -1,0 +1,67 @@
+---
+// src/components/Publications.astro
+const publications = [
+  {
+    title: "Communs Numériques",
+    description: "Blog de veille et d'analyse : potentiel de transformation des communs numériques pour les administrations.",
+    url: "https://communs-numeriques.fr/",
+    icon: "users-cog",
+    tag: "Recherche & Veille",
+  },
+  {
+    title: "Elegartech.fr",
+    description: "Blog tech : IA, Cloud, Open Source, et stratégies de transformation digitale.",
+    url: "https://www.elegartech.fr",
+    icon: "laptop-code",
+    tag: "Blog Tech",
+  },
+  {
+    title: "Elegartex.fr",
+    description: "Exploration créative digitale et création artistique assistée par les nouvelles technologies.",
+    url: "https://www.elegartex.fr",
+    icon: "paint-brush",
+    tag: "Art Numérique",
+  },
+];
+---
+
+<section id="publications" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <h2 class="section-heading font-display text-3xl md:text-4xl font-bold mb-4">
+      <span class="font-mono text-teal-500 mr-3">&gt;</span>Publications & Veille
+    </h2>
+    <p class="text-lg opacity-60 mb-12">Recherche, veille technologique, et explorations créatives.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {publications.map(pub => (
+        <a href={pub.url} target="_blank" rel="noopener" class="group block p-6 bg-white/5 border border-white/10 rounded-xl hover:border-teal-500/30 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <i class={`fas fa-${pub.icon} text-teal-400 text-xl`}></i>
+            <span class="font-mono text-xs px-2 py-0.5 bg-teal-500/10 border border-teal-500/20 text-teal-400 rounded">{pub.tag}</span>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2 group-hover:text-teal-400 transition-colors">{pub.title}</h3>
+          <p class="text-sm opacity-60">{pub.description}</p>
+          <span class="inline-flex items-center gap-1 text-xs font-mono text-teal-400/60 mt-4 group-hover:text-teal-400 transition-colors">
+            Visiter <i class="fas fa-external-link-alt"></i>
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Memoire academique -->
+    <div class="mt-12 p-6 bg-teal-500/5 border border-teal-500/20 rounded-xl">
+      <div class="flex items-start gap-4">
+        <i class="fas fa-feather-alt text-teal-400 text-xl mt-1"></i>
+        <div>
+          <h3 class="font-display font-semibold text-lg mb-1">Mémoire de recherche</h3>
+          <p class="text-sm opacity-70 mb-2 italic">"Les facteurs d'institutionnalisation des communs numériques dans l'administration"</p>
+          <p class="text-xs opacity-50 mb-3">Master 2 MSIC — Paris 1 Panthéon-Sorbonne — 17/20</p>
+          <a href="https://communs-numeriques.fr/articles/memoire-institutionnalisation-communs-numeriques" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-mono text-teal-400 hover:text-teal-300 transition-colors">
+            Lire en ligne <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

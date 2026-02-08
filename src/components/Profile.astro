@@ -1,34 +1,73 @@
 ---
-// src/components/Profile.astro — Phase 2
+// src/components/Profile.astro — Acte 2 : "La vision"
 ---
 
-<section id="profil" class="section profile-section">
-    <div class="max-w-6xl mx-auto relative z-10">
-        <h2 class="section-heading reveal"><i class="fas fa-user-tie"></i> Profil Exécutif</h2>
+<section id="profil" class="min-h-screen flex items-center py-24 transition-colors">
+  <div class="max-w-5xl mx-auto px-6">
 
-        <div class="grid lg:grid-cols-5 gap-10 items-center">
-            <div class="lg:col-span-3 reveal">
-                <p class="section-intro">
-                    <strong>17+ années d'expérience management</strong> dont <strong>6 ans en direction IT</strong> dans le secteur santé/protection sociale. Actuellement <strong>Responsable Département Informatique à la CPAM des Hauts-de-Seine</strong> (45 collaborateurs, 1 400 postes, 250+ VM). Expert en pilotage stratégique SI, transformation digitale et management d'équipes pluridisciplinaires. ROI démontré : 360k utilisations/an (www.depotdoc.fr), -50% flux papier, 81% résolution 1er contact.
-                </p>
-                <div class="principles-container">
-                    <h3 class="principles-title">Principes Directeurs</h3>
-                    <div class="principles-grid stagger-reveal">
-                        <div class="principle-item"><div class="principle-icon"><i class="fas fa-users"></i></div><span class="principle-text">Fédérer</span></div>
-                        <div class="principle-item"><div class="principle-icon"><i class="fas fa-chart-line"></i></div><span class="principle-text">Transformer</span></div>
-                        <div class="principle-item"><div class="principle-icon"><i class="fas fa-seedling"></i></div><span class="principle-text">Faire Grandir</span></div>
-                        <div class="principle-item"><div class="principle-icon"><i class="fas fa-rocket"></i></div><span class="principle-text">Innover</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-2 reveal">
-                <div class="profile-core-cards-grid stagger-reveal">
-                    <div class="profile-core-card"><i class="fas fa-users"></i><span>Leadership & Management</span></div>
-                    <div class="profile-core-card"><i class="fas fa-sync-alt"></i><span>Transformation Digitale</span></div>
-                    <div class="profile-core-card"><i class="fas fa-heartbeat"></i><span>Expertise Santé/Social</span></div>
-                    <div class="profile-core-card"><i class="fas fa-lightbulb"></i><span>Innovation (IA, Open Source)</span></div>
-                </div>
-            </div>
-        </div>
+    <!-- Titre section -->
+    <h2 class="section-heading font-display text-3xl md:text-4xl font-bold mb-16">
+      <span class="font-mono text-teal-500 mr-3">&gt;</span>Profil exécutif
+    </h2>
+
+    <!-- Texte highlight progressif -->
+    <div class="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-16 font-light">
+      <span class="highlight-word" style="opacity: 0.2">En</span>
+      <span class="highlight-word" style="opacity: 0.2">17</span>
+      <span class="highlight-word" style="opacity: 0.2">ans</span>
+      <span class="highlight-word" style="opacity: 0.2">de</span>
+      <span class="highlight-word" style="opacity: 0.2">management</span>
+      <span class="highlight-word" style="opacity: 0.2">dans</span>
+      <span class="highlight-word" style="opacity: 0.2">la</span>
+      <span class="highlight-word" style="opacity: 0.2">protection</span>
+      <span class="highlight-word" style="opacity: 0.2">sociale,</span>
+      <span class="highlight-word" style="opacity: 0.2">dont</span>
+      <span class="highlight-word" style="opacity: 0.2">5</span>
+      <span class="highlight-word" style="opacity: 0.2">en</span>
+      <span class="highlight-word" style="opacity: 0.2">direction</span>
+      <span class="highlight-word" style="opacity: 0.2">IT,</span>
+      <span class="highlight-word" style="opacity: 0.2">j'ai</span>
+      <span class="highlight-word" style="opacity: 0.2">piloté</span>
+      <span class="highlight-word" style="opacity: 0.2">des</span>
+      <span class="highlight-word" style="opacity: 0.2">transformations</span>
+      <span class="highlight-word" style="opacity: 0.2">numériques</span>
+      <span class="highlight-word" style="opacity: 0.2">au</span>
+      <span class="highlight-word" style="opacity: 0.2">service</span>
+      <span class="highlight-word" style="opacity: 0.2">de</span>
+      <span class="highlight-word" style="opacity: 0.2">millions</span>
+      <span class="highlight-word" style="opacity: 0.2">d'assurés.</span>
     </div>
+
+    <!-- Blocs competences-cles (2x2 grid) -->
+    <div class="profile-blocks-container grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="profile-block p-6 bg-white/5 border border-white/10 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fas fa-users-cog text-teal-400 text-xl"></i>
+          <h3 class="font-display font-semibold text-lg">Management</h3>
+        </div>
+        <p class="text-sm opacity-70">45 collaborateurs multi-sites, budget 800k€, pilotage de 3 services (Dev, Support/Infra, Correspondants IT + Data/BI)</p>
+      </div>
+      <div class="profile-block p-6 bg-white/5 border border-white/10 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fas fa-server text-teal-400 text-xl"></i>
+          <h3 class="font-display font-semibold text-lg">Infrastructure</h3>
+        </div>
+        <p class="text-sm opacity-70">1 400 postes, 250+ VM, 40 serveurs physiques, architecture haute disponibilité, monitoring Centreon</p>
+      </div>
+      <div class="profile-block p-6 bg-white/5 border border-white/10 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fas fa-code text-amber-400 text-xl"></i>
+          <h3 class="font-display font-semibold text-lg">Développement</h3>
+        </div>
+        <p class="text-sm opacity-70">30+ applications locales, architectures NestJS/Next.js et Symfony, chatbot IA avec RAG, automatisation DevOps</p>
+      </div>
+      <div class="profile-block p-6 bg-white/5 border border-white/10 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fas fa-rocket text-amber-400 text-xl"></i>
+          <h3 class="font-display font-semibold text-lg">Transformation</h3>
+        </div>
+        <p class="text-sm opacity-70">Projet TAM (Transformation Assurance Maladie), conduite du changement, RGPD, communs numériques, gouvernance SI</p>
+      </div>
+    </div>
+  </div>
 </section>

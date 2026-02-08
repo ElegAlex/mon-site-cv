@@ -1,79 +1,84 @@
 ---
-// src/components/Hero.astro — Phase 3 (Astro Image optimization)
-import { Image } from 'astro:assets';
-import photoAlex from '../assets/photo_alex.png';
+// src/components/Hero.astro — Acte 1 : "Le terminal"
 ---
 
-<section id="accueil" class="hero-section">
-    <div class="hero-background"><div class="hero-bg-pattern"></div><div class="hero-gradient-overlay"></div></div>
-    <div class="hero-decorations"><div class="hero-deco-shape shape1"></div><div class="hero-deco-shape shape2"></div><div class="hero-deco-shape shape3"></div></div>
-    <div class="hero-content">
-        <div class="grid lg:grid-cols-5 gap-12 items-center">
-            <div class="lg:col-span-3 hero-text-content">
-                <h1 class="hero-name">Alexandre Berge</h1>
-                <p class="hero-title">Responsable Département Informatique</p>
-                <p class="hero-specialization">CPAM des Hauts-de-Seine · Secteur Santé & Protection Sociale</p>
+<section id="accueil" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0f1729]">
 
-                <div class="hero-credentials">
-                    <span class="credential-badge"><i class="fas fa-graduation-cap mr-1"></i>Master MSIC Paris 1</span>
-                    <span class="credential-badge"><i class="fas fa-certificate mr-1"></i>ITIL 4 Foundation</span>
-                    <span class="credential-badge"><i class="fas fa-users mr-1"></i>45 collaborateurs</span>
-                </div>
+  <!-- Grille decorative -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(45,143,143,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(45,143,143,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
-                <div class="hero-contact-info">
-                    <span><i class="fas fa-map-marker-alt"></i>Nanterre (92), Île-de-France</span>
-                    <span class="separator">|</span>
-                    <span><i class="fas fa-phone"></i>06 65 57 64 78</span>
-                    <span class="separator">|</span>
-                    <a href="mailto:contact@alexandre-berge.fr" class="hero-contact-link"><i class="fas fa-envelope"></i>contact@alexandre-berge.fr</a>
-                </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center lg:text-left">
 
-                <div class="hero-metrics">
-                    <div class="metric-card">
-                        <span class="metric-number">17+</span>
-                        <span class="metric-label">ans Management</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-number">45</span>
-                        <span class="metric-label">Collaborateurs</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-number">1 400</span>
-                        <span class="metric-label">Postes gérés</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-number">250+</span>
-                        <span class="metric-label">VM / 40 serveurs</span>
-                    </div>
-                </div>
-
-                <div class="hero-actions">
-                    <div class="hero-social-links">
-                        <a href="https://www.linkedin.com/in/bergealexandre" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link-hero"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.elegartech.fr" target="_blank" rel="noopener noreferrer" title="Elegartech (Blog IT)" class="social-link-hero"><i class="fas fa-laptop-code"></i></a>
-                        <a href="https://communs-numeriques.fr/" target="_blank" title="Communs Numériques (Recherche)" class="social-link-hero"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://www.elegartex.fr" target="_blank" rel="noopener noreferrer" title="Elegartex (Art)" class="social-link-hero"><i class="fas fa-palette"></i></a>
-                    </div>
-                    <a href="/assets/cv-alexandre-berge.pdf" download="CV_Alexandre_Berge.pdf" class="download-cv-button"><i class="fas fa-file-pdf"></i> Télécharger CV</a>
-                </div>
-            </div>
-            <div class="lg:col-span-2 flex justify-center hero-image-container">
-                <div class="profile-image-wrapper">
-                    <div class="profile-image">
-                        <Image
-                            src={photoAlex}
-                            alt="Alexandre Berge"
-                            width={320}
-                            height={320}
-                            format="webp"
-                            quality={80}
-                            loading="eager"
-                            fetchpriority="high"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Nom avec typing effect -->
+    <div class="mb-6">
+      <span class="font-mono text-teal-400 text-sm tracking-widest block mb-4">&gt; whoami</span>
+      <h1 class="hero-name invisible font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight">
+        Alexandre Berge
+      </h1>
+      <span class="inline-block w-[3px] h-12 md:h-16 bg-teal-400 ml-1 animate-blink align-bottom"></span>
     </div>
-    <div class="scroll-indicator"><i class="fas fa-arrow-down"></i></div>
+
+    <!-- Titre + Org -->
+    <p class="hero-subtitle font-display text-xl md:text-2xl text-white/90 font-medium mb-2 opacity-0">
+      Responsable Département Informatique
+    </p>
+    <p class="hero-org text-white/50 text-lg mb-8 opacity-0">
+      CPAM des Hauts-de-Seine · Nanterre (92)
+    </p>
+
+    <!-- Badges -->
+    <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-12">
+      <span class="hero-badge opacity-0 inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded font-mono text-xs text-white/70">
+        <i class="fas fa-graduation-cap text-teal-400"></i> Master MSIC — Paris 1
+      </span>
+      <span class="hero-badge opacity-0 inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded font-mono text-xs text-white/70">
+        <i class="fas fa-certificate text-amber-400"></i> ITIL 4 Foundation
+      </span>
+      <span class="hero-badge opacity-0 inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded font-mono text-xs text-white/70">
+        <i class="fas fa-users text-teal-400"></i> 45 collaborateurs
+      </span>
+    </div>
+
+    <!-- Metriques avec countup -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <div class="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+        <span class="metric-value block font-mono text-3xl md:text-4xl font-bold text-teal-400" data-value="17" data-suffix="+">0</span>
+        <span class="block text-xs text-white/50 mt-1 uppercase tracking-wider">ans management</span>
+      </div>
+      <div class="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+        <span class="metric-value block font-mono text-3xl md:text-4xl font-bold text-teal-400" data-value="45">0</span>
+        <span class="block text-xs text-white/50 mt-1 uppercase tracking-wider">collaborateurs</span>
+      </div>
+      <div class="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+        <span class="metric-value block font-mono text-3xl md:text-4xl font-bold text-amber-400" data-value="1400">0</span>
+        <span class="block text-xs text-white/50 mt-1 uppercase tracking-wider">postes de travail</span>
+      </div>
+      <div class="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+        <span class="metric-value block font-mono text-3xl md:text-4xl font-bold text-teal-400" data-value="250" data-suffix="+">0</span>
+        <span class="block text-xs text-white/50 mt-1 uppercase tracking-wider">machines virtuelles</span>
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="hero-cta opacity-0 flex flex-wrap justify-center lg:justify-start items-center gap-4">
+      <a href="/assets/cv-alexandre-berge.pdf" download class="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded transition-colors">
+        <i class="fas fa-file-pdf"></i> Télécharger le CV
+      </a>
+      <a href="https://www.linkedin.com/in/bergealexandre" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 border border-white/20 hover:border-teal-400 text-white/70 hover:text-teal-400 rounded transition-colors">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/ElegAlex" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 border border-white/20 hover:border-teal-400 text-white/70 hover:text-teal-400 rounded transition-colors">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2.5 border border-white/20 hover:border-teal-400 text-white/70 hover:text-teal-400 rounded transition-colors">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+    <span class="font-mono text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-[1px] h-8 bg-gradient-to-b from-white/30 to-transparent animate-bounce"></div>
+  </div>
 </section>
