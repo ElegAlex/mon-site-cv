@@ -68,19 +68,54 @@ const formations = [
 const techCategories = [
   {
     label: "Gestion",
-    tags: ["ITIL", "Agile/Scrum", "RGPD", "Conduite du changement", "Gouvernance SI", "Leadership IT"],
+    tags: [
+      { name: "ITIL", level: 4 },
+      { name: "Agile/Scrum", level: 3 },
+      { name: "RGPD", level: 3 },
+      { name: "Conduite du changement", level: 5 },
+      { name: "Gouvernance SI", level: 5 },
+      { name: "Leadership IT", level: 5 },
+    ],
   },
   {
     label: "Infrastructure",
-    tags: ["VMware", "Docker", "Linux", "Windows Server", "Active Directory", "Centreon", "GLPI", "Veeam", "PRTG"],
+    tags: [
+      { name: "VMware", level: 3 },
+      { name: "Docker", level: 2 },
+      { name: "Linux", level: 3 },
+      { name: "Windows Server", level: 3 },
+      { name: "Active Directory", level: 2 },
+      { name: "Centreon", level: 3 },
+      { name: "GLPI", level: 3 },
+      { name: "Veeam", level: 2 },
+      { name: "PRTG", level: 2 },
+    ],
   },
   {
     label: "Data & IA",
-    tags: ["PostgreSQL", "Redis", "Neo4j", "RAG", "LangChain", "Elasticsearch", "LLM"],
+    tags: [
+      { name: "PostgreSQL", level: 3 },
+      { name: "Redis", level: 2 },
+      { name: "Neo4j", level: 3 },
+      { name: "RAG", level: 3 },
+      { name: "LangChain", level: 2 },
+      { name: "Elasticsearch", level: 2 },
+      { name: "LLM", level: 3 },
+    ],
   },
   {
     label: "Développement",
-    tags: ["NestJS", "Next.js", "React", "Symfony", "PHP", "Python", "TypeScript", "Node.js", "CI/CD"],
+    tags: [
+      { name: "NestJS", level: 2 },
+      { name: "Next.js", level: 2 },
+      { name: "React", level: 2 },
+      { name: "Symfony", level: 4 },
+      { name: "PHP", level: 4 },
+      { name: "Python", level: 3 },
+      { name: "TypeScript", level: 3 },
+      { name: "Node.js", level: 2 },
+      { name: "CI/CD", level: 3 },
+    ],
   },
 ];
 ---
@@ -130,7 +165,7 @@ const techCategories = [
       </div>
     </div>
 
-    <!-- Tech tags -->
+    <!-- Tech tags par categorie -->
     <div class="tech-tags-container space-y-8">
       {techCategories.map(cat => (
         <div>
@@ -138,9 +173,10 @@ const techCategories = [
           <div class="flex flex-wrap gap-2">
             {cat.tags.map(tag => (
               <span
-                class="tech-tag font-mono cursor-default"
-                style={`font-size: 0.75rem; padding: 0.375rem 0.75rem; border-radius: 0.25rem; background: var(--sk-tag-bg); border: 1px solid var(--sk-tag-border); color: var(--sk-tag-text);`}>
-                {tag}
+                class="tech-tag font-mono cursor-default relative overflow-hidden"
+                style={`font-size: 0.75rem; padding: 0.375rem 0.75rem; border-radius: 0.25rem; border: 1px solid var(--sk-tag-border); color: var(--sk-tag-text); background: linear-gradient(to right, rgba(45,143,143,${tag.level >= 4 ? 0.15 : 0.08}) ${tag.level * 20}%, transparent ${tag.level * 20}%);`}
+                title={`${tag.level}/5`}>
+                {tag.name}
               </span>
             ))}
           </div>
