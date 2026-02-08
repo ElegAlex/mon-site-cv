@@ -120,6 +120,26 @@ function initAnimations() {
     ease: 'power2.out',
   });
 
+  // Portrait duotone fade-in
+  gsap.to('.hero-portrait', {
+    opacity: 1,
+    duration: 2,
+    delay: 2,
+    ease: 'power2.inOut',
+  });
+
+  // Portrait parallax subtil
+  gsap.to('.hero-portrait img', {
+    yPercent: 15,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#accueil',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
   // ============================================================
   // ACTE 2 — PROFIL : Section pinnee + highlight progressif
   // ============================================================
