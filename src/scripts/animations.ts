@@ -200,17 +200,28 @@ function initAnimations() {
         const totalWidth = expInner.scrollWidth;
         const viewportWidth = window.innerWidth;
 
-        // Timeline : pause initiale (premier panneau reste visible) puis scroll horizontal
+        // Timeline : micro-pause à chaque panneau centré, pas de snap
         const tl = gsap.timeline();
-        tl.to(expInner, { x: 0, duration: 0.03, ease: 'none' })  // 3% de pause
-          .to(expInner, { x: -(totalWidth - viewportWidth), duration: 0.97, ease: 'none' });
+        const panelCount = expPanels.length;
+        const pauseDuration = 0.02; // 2% de pause par panneau
+        const totalPause = pauseDuration * panelCount;
+        const scrollPerStep = (1 - totalPause) / (panelCount - 1);
+        const stepX = (totalWidth - viewportWidth) / (panelCount - 1);
+
+        // Premier panneau : pause initiale
+        tl.to(expInner, { x: 0, duration: pauseDuration, ease: 'none' });
+        for (let i = 1; i < panelCount; i++) {
+          // Scroll vers le panneau suivant
+          tl.to(expInner, { x: -stepX * i, duration: scrollPerStep, ease: 'none' });
+          // Micro-pause au centre du panneau
+          tl.to(expInner, { x: -stepX * i, duration: pauseDuration, ease: 'none' });
+        }
 
         ScrollTrigger.create({
           trigger: expContainer,
           pin: true,
           scrub: 1,
           animation: tl,
-          snap: { snapTo: 1 / (expPanels.length - 1), duration: { min: 0.3, max: 0.6 }, delay: 0.1 },
           end: () => '+=' + (totalWidth + window.innerWidth),
         });
 
