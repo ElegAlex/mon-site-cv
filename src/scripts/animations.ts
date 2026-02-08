@@ -259,12 +259,13 @@ function initAnimations() {
     gsap.from(bentoItems, {
       y: 30,
       opacity: 0,
-      stagger: 0.05,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: '.bento-grid',
-        start: 'top 75%',
-        end: 'top 35%',
-        scrub: true,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
       },
     });
   }
@@ -274,12 +275,13 @@ function initAnimations() {
     gsap.from(techTags, {
       scale: 0.8,
       opacity: 0,
+      duration: 0.4,
       stagger: 0.03,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: '.tech-tags-container',
-        start: 'top 80%',
-        end: 'top 50%',
-        scrub: true,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
       },
     });
   }
@@ -412,6 +414,9 @@ function initAnimations() {
       });
     });
   }
+
+  // Refresh ScrollTrigger after all animations are set up and fonts loaded
+  window.addEventListener('load', () => ScrollTrigger.refresh());
 }
 
 // ============================================================

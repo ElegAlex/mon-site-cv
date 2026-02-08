@@ -45,6 +45,17 @@
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Skills section tokens (light mode defaults) */
+  --sk-card-bg: #f1f5f9;
+  --sk-card-border: #e2e8f0;
+  --sk-tag-bg: #f1f5f9;
+  --sk-tag-border: #e2e8f0;
+  --sk-tag-text: #475569;
+  --sk-muted: #64748b;
+  --sk-faint: #94a3b8;
+  --sk-accent: #0f766e;
+  --sk-accent-strong: #0f766e;
 }
 
 /* ==========================================================================
@@ -63,6 +74,17 @@
   --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+
+  /* Skills section tokens (dark mode) */
+  --sk-card-bg: rgba(255, 255, 255, 0.05);
+  --sk-card-border: rgba(255, 255, 255, 0.1);
+  --sk-tag-bg: rgba(255, 255, 255, 0.05);
+  --sk-tag-border: rgba(255, 255, 255, 0.1);
+  --sk-tag-text: rgba(255, 255, 255, 0.6);
+  --sk-muted: rgba(255, 255, 255, 0.5);
+  --sk-faint: rgba(255, 255, 255, 0.3);
+  --sk-accent: #2dd4bf;
+  --sk-accent-strong: #2dd4bf;
 }
 
 /* ==========================================================================
