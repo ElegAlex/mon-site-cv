@@ -343,14 +343,6 @@ function initAnimations() {
     { trigger: '#contact',      bg: '#0f1729' },
   ];
 
-  // Adapt transitions to theme
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  if (isDark) {
-    bgTransitions.forEach(t => {
-      if (t.bg === '#fafbfc' || t.bg === '#f0f4f8') t.bg = '#0f1729';
-    });
-  }
-
   bgTransitions.forEach(({ trigger, bg }) => {
     ScrollTrigger.create({
       trigger,

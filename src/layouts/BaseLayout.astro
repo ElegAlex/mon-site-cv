@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro';
 import 'lenis/dist/lenis.css';
 import '../styles/global.css';
 ---
@@ -61,13 +60,6 @@ import '../styles/global.css';
   }
   </script>
 
-  <!-- Anti-flash: apply theme before render -->
-  <script is:inline>
-    const t = localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', t);
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -95,13 +87,10 @@ import '../styles/global.css';
         <a href="#contact" class="nav-link font-mono text-xs tracking-wider uppercase text-white/60 hover:text-white transition-colors">Contact</a>
       </div>
 
-      <div class="flex items-center gap-4">
-        <ThemeToggle />
-        <!-- Menu burger mobile -->
-        <button class="lg:hidden text-white" id="mobile-menu-toggle" aria-label="Menu">
-          <i class="fas fa-bars text-lg"></i>
-        </button>
-      </div>
+      <!-- Menu burger mobile -->
+      <button class="lg:hidden text-white" id="mobile-menu-toggle" aria-label="Menu">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
     </nav>
   </header>
 

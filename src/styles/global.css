@@ -37,7 +37,7 @@
    Design tokens
    ========================================================================== */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
@@ -56,35 +56,6 @@
   --sk-faint: #94a3b8;
   --sk-accent: #0f766e;
   --sk-accent-strong: #0f766e;
-}
-
-/* ==========================================================================
-   Dark mode overrides
-   ========================================================================== */
-[data-theme="dark"] {
-  --color-surface: #0f1729;
-  --color-surface-card: #1a2744;
-  --color-surface-dark: #080e1b;
-  --color-text-primary: #e2e8f0;
-  --color-text-secondary: #94a3b8;
-  --color-text-inverse: #1a2744;
-  --color-text-muted: #64748b;
-  --color-border: #2d3a50;
-  --color-border-accent: rgba(45, 143, 143, 0.3);
-  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
-
-  /* Skills section tokens (dark mode) */
-  --sk-card-bg: rgba(255, 255, 255, 0.05);
-  --sk-card-border: rgba(255, 255, 255, 0.1);
-  --sk-tag-bg: rgba(255, 255, 255, 0.05);
-  --sk-tag-border: rgba(255, 255, 255, 0.1);
-  --sk-tag-text: rgba(255, 255, 255, 0.6);
-  --sk-muted: rgba(255, 255, 255, 0.5);
-  --sk-faint: rgba(255, 255, 255, 0.3);
-  --sk-accent: #2dd4bf;
-  --sk-accent-strong: #2dd4bf;
 }
 
 /* ==========================================================================
@@ -128,28 +99,20 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   width: 2rem;
 }
 
-/* Dark mode — sections claires dans le rythme */
-[data-theme="light"] #accueil,
-[data-theme="light"] #experience,
-[data-theme="light"] #contact {
+/* Sections — alternance de fonds */
+#accueil,
+#experience,
+#contact {
   background-color: #1a2744;
   color: white;
 }
 
-[data-theme="light"] #profil,
-[data-theme="light"] #projets,
-[data-theme="light"] #competences,
-[data-theme="light"] #publications {
+#profil,
+#projets,
+#competences,
+#publications {
   background-color: #fafbfc;
   color: #1a2744;
-}
-
-[data-theme="dark"] #profil,
-[data-theme="dark"] #projets,
-[data-theme="dark"] #competences,
-[data-theme="dark"] #publications {
-  background-color: #0f1729;
-  color: #e2e8f0;
 }
 
 /* Responsive : desactiver horizontal scroll sur mobile pour Experience */
@@ -192,26 +155,3 @@ html.lenis, html.lenis body {
   scroll-behavior: auto !important;
 }
 
-/* ==========================================================================
-   Theme toggle
-   ========================================================================== */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s var(--ease);
-  font-size: 0.95rem;
-}
-.theme-toggle:hover {
-  background: rgba(45, 143, 143, 0.15);
-  color: #3ab5b5;
-  border-color: rgba(45, 143, 143, 0.3);
-}
-.theme-icon-hidden { display: none; }
