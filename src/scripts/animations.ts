@@ -174,9 +174,9 @@ function initAnimations() {
     tl.from('.profile-block', {
       y: 40,
       opacity: 0,
-      stagger: 1.5,
-      duration: 2,
-    }, '+=4');
+      stagger: 3,
+      duration: 3,
+    }, '+=6');
   }
 
   // ============================================================
