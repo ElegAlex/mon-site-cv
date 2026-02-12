@@ -180,7 +180,7 @@ function initAnimations() {
 
     // Pause après la dernière card avant de dépinner
     // (tween invisible sur le conteneur pour garantir l'extension de la timeline)
-    tl.to(profileSection, { opacity: 1, duration: 10 }, '>');
+    tl.to(profileSection, { opacity: 1, duration: 5 }, '>');
   }
 
   // ============================================================
