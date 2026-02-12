@@ -179,7 +179,8 @@ function initAnimations() {
     }, '+=6');
 
     // Pause après la dernière card avant de dépinner
-    tl.to({}, { duration: 8 });
+    // (tween invisible sur le conteneur pour garantir l'extension de la timeline)
+    tl.to(profileSection, { opacity: 1, duration: 10 }, '>');
   }
 
   // ============================================================
