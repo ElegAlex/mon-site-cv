@@ -148,10 +148,13 @@ function initAnimations() {
   const profileWords = document.querySelectorAll('.highlight-word');
 
   if (profileSection && profileWords.length > 0) {
+    const pinDuration = window.innerHeight * 3;
+    const wordScrollSpan = window.innerHeight * 2.2;
+
     ScrollTrigger.create({
       trigger: profileSection,
       start: 'top top',
-      end: `+=${window.innerHeight * 1.5}`,
+      end: `+=${pinDuration}`,
       pin: true,
       pinSpacing: true,
     });
@@ -162,8 +165,8 @@ function initAnimations() {
         color: '#2d8f8f',
         scrollTrigger: {
           trigger: profileSection,
-          start: `top+=${(i / profileWords.length) * window.innerHeight * 1.2} top`,
-          end: `top+=${((i + 1) / profileWords.length) * window.innerHeight * 1.2} top`,
+          start: `top+=${(i / profileWords.length) * wordScrollSpan} top`,
+          end: `top+=${((i + 1) / profileWords.length) * wordScrollSpan} top`,
           scrub: true,
         },
       });
@@ -174,9 +177,9 @@ function initAnimations() {
       opacity: 0,
       stagger: 0.15,
       scrollTrigger: {
-        trigger: '.profile-blocks-container',
-        start: 'top 80%',
-        end: 'top 40%',
+        trigger: profileSection,
+        start: `top+=${wordScrollSpan + window.innerHeight * 0.1} top`,
+        end: `top+=${wordScrollSpan + window.innerHeight * 0.6} top`,
         scrub: true,
       },
     });
