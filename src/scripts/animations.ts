@@ -148,41 +148,35 @@ function initAnimations() {
   const profileWords = document.querySelectorAll('.highlight-word');
 
   if (profileSection && profileWords.length > 0) {
-    const pinDuration = window.innerHeight * 3;
-    const wordScrollSpan = window.innerHeight * 2.2;
-
-    ScrollTrigger.create({
-      trigger: profileSection,
-      start: 'top top',
-      end: `+=${pinDuration}`,
-      pin: true,
-      pinSpacing: true,
-    });
-
-    profileWords.forEach((word, i) => {
-      gsap.to(word, {
-        opacity: 1,
-        color: '#2d8f8f',
-        scrollTrigger: {
-          trigger: profileSection,
-          start: `top+=${(i / profileWords.length) * wordScrollSpan} top`,
-          end: `top+=${((i + 1) / profileWords.length) * wordScrollSpan} top`,
-          scrub: true,
-        },
-      });
-    });
-
-    gsap.from('.profile-block', {
-      y: 40,
-      opacity: 0,
-      stagger: 0.15,
+    // Une seule timeline scrub liée au pin — évite les conflits
+    // entre ScrollTriggers individuels sur un élément pinné
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: profileSection,
-        start: `top+=${wordScrollSpan + window.innerHeight * 0.1} top`,
-        end: `top+=${wordScrollSpan + window.innerHeight * 0.6} top`,
+        start: 'top top',
+        end: `+=${window.innerHeight * 3}`,
+        pin: true,
+        pinSpacing: true,
         scrub: true,
       },
     });
+
+    // Chaque mot s'illumine séquentiellement
+    profileWords.forEach((word) => {
+      tl.to(word, {
+        opacity: 1,
+        color: '#2d8f8f',
+        duration: 1,
+      });
+    });
+
+    // Puis les blocs compétences apparaissent
+    tl.from('.profile-block', {
+      y: 40,
+      opacity: 0,
+      stagger: 0.5,
+      duration: 1,
+    }, '+=2');
   }
 
   // ============================================================
