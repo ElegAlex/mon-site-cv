@@ -170,13 +170,13 @@ function initAnimations() {
       });
     });
 
-    // Puis les blocs compétences apparaissent
+    // Puis les blocs compétences apparaissent (plus lentement)
     tl.from('.profile-block', {
       y: 40,
       opacity: 0,
-      stagger: 0.5,
-      duration: 1,
-    }, '+=2');
+      stagger: 1.5,
+      duration: 2,
+    }, '+=4');
   }
 
   // ============================================================
