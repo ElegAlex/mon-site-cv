@@ -177,6 +177,9 @@ function initAnimations() {
       stagger: 3,
       duration: 3,
     }, '+=6');
+
+    // Pause après la dernière card avant de dépinner
+    tl.to({}, { duration: 8 });
   }
 
   // ============================================================
